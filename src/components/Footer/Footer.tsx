@@ -17,6 +17,9 @@ export default function Footer() {
         </div>
         <div className="flex flex-col gap-2 items-center">
           <span className="font-semibold text-lg">Соцсети</span>
+          <a href="/Telegram" className="text-sm text-gray-400 hover:text-white transition">Telegram</a>
+          <a href="/Instagram" className="text-sm text-gray-400 hover:text-white transition">Instagram</a>
+          <a href="/X" className="text-sm text-gray-400 hover:text-white transition">X</a>
           <Social />
         </div>
       </div>

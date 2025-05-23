@@ -12,12 +12,12 @@ const slides = [
     desc: 'Описание новинки 1',
   },
   {
-    image: '/images/ava.jpg',
+    image: '/images/2.jpg',
     title: 'Новинка 2',
     desc: 'Описание новинки 2',
   },
   {
-    image: '/images/1.jpg',
+    image: '/images/3.jpg',
     title: 'Новинка 3',
     desc: 'Описание новинки 3',
   },
@@ -34,11 +34,11 @@ export default function Slider() {
           loop
           spaceBetween={32}
           slidesPerView={1}
-          className="rounded-2xl shadow-lg w-full h-[400px]" // например, фиксированная высота 400px
+          className="rounded-2xl shadow-lg w-full h-[500px]" // например, фиксированная высота 400px
         >
           {slides.map((slide, idx) => (
             <SwiperSlide key={idx}>
-              <div className="flex flex-col items-center justify-center bg-gray-800 rounded-2xl w-full h-[400px]"> {/* фиксированная высота */}
+              <div className="flex flex-col items-center justify-center bg-gray-800 rounded-2xl w-full h-[500px]"> {/* фиксированная высота */}
                 <div className="relative w-full h-full">
                   <Image
                     src={slide.image}

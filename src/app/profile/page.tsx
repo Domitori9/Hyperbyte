@@ -4,8 +4,8 @@ import { useState } from "react";
 
 // Пример текущих данных пользователя (замените на реальные данные из вашего источника)
 const mockUser = {
-    name: "Иван Иванов",
-    email: "ivan@example.com",
+    name: "Дмитрий Дегтярь",
+    email: "domitori@gmail.com",
 };
 
 export default function UserProfile() {

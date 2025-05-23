@@ -10,7 +10,9 @@ export default function Keyboards() {
   return (
     <>
     <Header />
-        <h1 className="text-blue-400 text-3xl text-center m-4">Клавиатуры</h1>
+    <main> 
+      <h1 className="text-blue-400 text-3xl text-center m-4">Клавиатуры</h1>
+    </main>     
     <Footer />
     </>
   );

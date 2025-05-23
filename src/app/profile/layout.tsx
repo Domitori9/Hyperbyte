@@ -1,3 +1,9 @@
+
+export const metadata = {
+  title: 'HyperByte | Профиль ',
+};
+
+
 export default function ProfileLayout({
   children,
 }: {

@@ -25,8 +25,13 @@ export default function MousePage() {
   return (
     <>
       <Header />
-      <section className="bg-gradient-to-b from-blue-950 via-blue-900 to-blue-800 min-h-screen pt-8 pb-16">
-        <div className="max-w-7xl mx-auto px-4">
+      <main>
+      <section className="relative min-h-screen pt-8 pb-16 overflow-hidden" style={{ background: 'radial-gradient(circle at 70% 30%, #3b82f6 0%, #1e293b 70%)' }}>
+        {/* Decorative blurred blobs */}
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-blue-400 opacity-30 rounded-full filter blur-3xl z-0" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-purple-500 opacity-20 rounded-full filter blur-2xl z-0" />
+        <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-cyan-400 opacity-10 rounded-full filter blur-2xl z-0" style={{ transform: 'translate(-50%, -50%)' }} />
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
           <h1 className="text-4xl font-extrabold text-center text-white mb-10 drop-shadow-lg tracking-wide">
             Мышки
           </h1>
@@ -37,6 +42,7 @@ export default function MousePage() {
           </div>
         </div>
       </section>
+      </main>
       <Footer />
     </>
   );
