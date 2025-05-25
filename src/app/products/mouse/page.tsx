@@ -51,8 +51,8 @@ export default function MousePage() {
             <div className="flex flex-col">
               <label className="text-blue-100 mb-1 font-semibold">Цена, ₴</label>
               <div className="flex gap-2">
-                <input type="number" placeholder="от" min="0" className="w-20 rounded-xl px-3 py-2 bg-blue-900/60 text-white border border-cyan-400/20 focus:ring-2 focus:ring-cyan-400 outline-none transition-all duration-200 hover:border-cyan-300" />
-                <input type="number" placeholder="до" min="0" className="w-20 rounded-xl px-3 py-2 bg-blue-900/60 text-white border border-cyan-400/20 focus:ring-2 focus:ring-cyan-400 outline-none transition-all duration-200 hover:border-cyan-300" />
+                <input type="number" placeholder="от" min="0" className="w-20 rounded-xl px-3 py-2 bg-blue-900/60 text-white border border-cyan-400/20 focus:ring-2 focus:ring-cyan-400 outline-none transition-all duration-200 hover:border-cyan-300 hide-arrows" />
+                <input type="number" placeholder="до" min="0" className="w-20 rounded-xl px-3 py-2 bg-blue-900/60 text-white border border-cyan-400/20 focus:ring-2 focus:ring-cyan-400 outline-none transition-all duration-200 hover:border-cyan-300 hide-arrows" />
               </div>
             </div>
             {/* Тип сенсора */}
@@ -65,7 +65,7 @@ export default function MousePage() {
               </select>
             </div>
             {/* Сбросить */}
-            <button className="ml-2 mt-6 px-6 py-2 rounded-full bg-gradient-to-r from-cyan-500/70 via-blue-500/60 to-blue-900/60 text-white font-semibold shadow-md shadow-blue-900/10 opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300 hover:bg-cyan-400/40 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+            <button className="ml-2 mt-6 px-6 py-2 rounded-full bg-gradient-to-r from-cyan-500/70 via-blue-500/60 to-blue-900/60 text-white font-semibold shadow-md shadow-blue-900/10 opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300 hover:bg-cyan-400/40 focus:outline-none">
               Сбросить
             </button>
           </div>

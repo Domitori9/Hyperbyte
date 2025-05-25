@@ -2,7 +2,6 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Slider from "./../components/Slider";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import Favorites from "@/components/Favorites";
 
 export const metadata = {
@@ -40,7 +39,7 @@ export default function Home() {
           <section className="py-16">
             <h2 className="text-4xl text-white text-center mb-24 drop-shadow-lg tracking-wide ">Категорії</h2>
             <div className="flex flex-col md:flex-row gap-8 px-4 max-w-6xl mx-auto items-stretch justify-center">
-              {/* Большой блок "Системники" слева */}
+              {/* Левая кнопка: Большой блок 'Системники' */}
               <div className="flex-shrink-0 flex flex-col justify-center md:w-1/3">
                 <a
                   href="/products/pc"
@@ -62,7 +61,7 @@ export default function Home() {
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-400/10 rounded-full blur-xl z-0" />
                 </a>
               </div>
-              {/* Центрированные два ряда по 3 карточки справа */}
+              {/* Правая часть: Центрированные два ряда по 3 карточки */}
               <div className="flex flex-col justify-center items-center flex-1">
                 <div className="flex flex-col gap-8 items-center justify-center">
                   <div className="flex gap-8 justify-center">
@@ -137,16 +136,12 @@ export default function Home() {
               Избранное
             </h2>
             <div className="relative">
-              {/* Красивый фон с градиентом, blur и свечением */}
-              {/* Удаляем дублирующийся фон, теперь фон и декоративные элементы внутри самого Favorites */}
+              {/* Кнопка "Добавить в избранное" и/или "Удалить из избранного" находятся внутри компонента Favorites */}
               <Favorites isLoggedIn={true} />
             </div>
           </section>
         </div>
       </section>
-      {/* <section>
-        <h1 className="flex justify-center text-5xl text-blue-400">Наши продукты</h1>
-      </section> */}
       <Footer />
     </>
   );

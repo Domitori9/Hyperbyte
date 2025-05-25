@@ -24,7 +24,7 @@ export default function Favorites({ isLoggedIn }: FavoritesProps) {
             <button
               type="button"
               aria-label="Scroll left"
-              className="hidden md:flex absolute -left-8 top-1/2 -translate-y-1/2 z-20 bg-gradient-to-br from-cyan-500/80 via-blue-500/80 to-blue-900/80 hover:from-cyan-400 hover:to-blue-700 text-white rounded-full shadow-xl w-12 h-12 items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-200 opacity-90 hover:opacity-100 border-2 border-cyan-300/30"
+              className="hidden md:flex absolute -left-8 top-1/2 -translate-y-1/2 z-20 bg-gradient-to-br from-cyan-500/80 via-blue-500/80 to-blue-900/80 hover:from-cyan-400 hover:to-blue-700 text-white rounded-full shadow-xl w-12 h-12 items-center justify-center transition-all duration-200 focus:outline-none opacity-90 hover:opacity-100 border-2 border-cyan-300/30"
               onClick={() => {
                 const container = document.getElementById('favorites-scroll');
                 if (container) container.scrollBy({ left: -320, behavior: 'smooth' });
@@ -60,7 +60,7 @@ export default function Favorites({ isLoggedIn }: FavoritesProps) {
             <button
               type="button"
               aria-label="Scroll right"
-              className="hidden md:flex absolute -right-8 top-1/2 -translate-y-1/2 z-20 bg-gradient-to-br from-cyan-500/80 via-blue-500/80 to-blue-900/80 hover:from-cyan-400 hover:to-blue-700 text-white rounded-full shadow-xl w-12 h-12 items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-200 opacity-90 hover:opacity-100 border-2 border-cyan-300/30"
+              className="hidden md:flex absolute -right-8 top-1/2 -translate-y-1/2 z-20 bg-gradient-to-br from-cyan-500/80 via-blue-500/80 to-blue-900/80 hover:from-cyan-400 hover:to-blue-700 text-white rounded-full shadow-xl w-12 h-12 items-center justify-center transition-all duration-200 focus:outline-none opacity-90 hover:opacity-100 border-2 border-cyan-300/30"
               onClick={() => {
                 const container = document.getElementById('favorites-scroll');
                 if (container) container.scrollBy({ left: 320, behavior: 'smooth' });
