@@ -35,6 +35,40 @@ export default function MousePage() {
           <h1 className="text-4xl font-extrabold text-center text-white mb-10 drop-shadow-lg tracking-wide">
             Мышки
           </h1>
+          {/* Фильтры */}
+          <div className="flex flex-wrap gap-4 justify-center items-end mb-10 p-6 rounded-2xl bg-gradient-to-r from-blue-900/60 via-blue-800/40 to-cyan-900/30 shadow-xl border border-cyan-400/20 backdrop-blur-md animate-fade-in">
+            {/* Производитель */}
+            <div className="flex flex-col">
+              <label className="text-blue-100 mb-1 font-semibold" htmlFor="brand">Производитель</label>
+              <select id="brand" className="rounded-xl px-4 py-2 bg-blue-900/60 text-white border border-cyan-400/20 focus:ring-2 focus:ring-cyan-400 outline-none transition-all duration-200 hover:border-cyan-300">
+                <option>Все</option>
+                <option>A4Tech</option>
+                <option>Logitech</option>
+                <option>Razer</option>
+              </select>
+            </div>
+            {/* Цена */}
+            <div className="flex flex-col">
+              <label className="text-blue-100 mb-1 font-semibold">Цена, ₴</label>
+              <div className="flex gap-2">
+                <input type="number" placeholder="от" min="0" className="w-20 rounded-xl px-3 py-2 bg-blue-900/60 text-white border border-cyan-400/20 focus:ring-2 focus:ring-cyan-400 outline-none transition-all duration-200 hover:border-cyan-300" />
+                <input type="number" placeholder="до" min="0" className="w-20 rounded-xl px-3 py-2 bg-blue-900/60 text-white border border-cyan-400/20 focus:ring-2 focus:ring-cyan-400 outline-none transition-all duration-200 hover:border-cyan-300" />
+              </div>
+            </div>
+            {/* Тип сенсора */}
+            <div className="flex flex-col">
+              <label className="text-blue-100 mb-1 font-semibold" htmlFor="sensor">Тип сенсора</label>
+              <select id="sensor" className="rounded-xl px-4 py-2 bg-blue-900/60 text-white border border-cyan-400/20 focus:ring-2 focus:ring-cyan-400 outline-none transition-all duration-200 hover:border-cyan-300">
+                <option>Все</option>
+                <option>Оптический</option>
+                <option>Лазерный</option>
+              </select>
+            </div>
+            {/* Сбросить */}
+            <button className="ml-2 mt-6 px-6 py-2 rounded-full bg-gradient-to-r from-cyan-500/70 via-blue-500/60 to-blue-900/60 text-white font-semibold shadow-md shadow-blue-900/10 opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300 hover:bg-cyan-400/40 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+              Сбросить
+            </button>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {products.map((product) => (
               <ProductCard key={product.id} Product={product} />
