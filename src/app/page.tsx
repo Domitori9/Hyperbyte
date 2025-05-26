@@ -136,7 +136,6 @@ export default function Home() {
               Избранное
             </h2>
             <div className="relative">
-              {/* Кнопка "Добавить в избранное" и/или "Удалить из избранного" находятся внутри компонента Favorites */}
               <Favorites isLoggedIn={true} />
             </div>
           </section>
