@@ -23,7 +23,7 @@ export default function UserProfile() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 animate-fade-in">
+        <div className="min-h-screen flex flex-col items-center justify-center animate-fade-in">
             <div className="w-full max-w-4xl p-8 rounded-3xl shadow-2xl bg-gray-900/90 backdrop-blur-md border border-gray-800 animate-slide-up">
                 <h1 className="text-4xl font-extrabold mb-6 text-center text-blue-400 drop-shadow-lg tracking-wide">Профиль</h1>
                 <div className="flex flex-col md:flex-row gap-8 items-start">

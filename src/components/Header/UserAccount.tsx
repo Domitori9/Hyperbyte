@@ -28,13 +28,13 @@ export default function UserAccount({ name, avatarUrl, isLoggedIn }: Props) {
       <div className="relative mr-7 flex items-center gap-3">
         <a
           href="/login"
-          className="px-5 py-2 rounded-full text-white font-semibold bg-gradient-to-r from-purple-500 to-indigo-500 shadow-lg hover:from-purple-600 hover:to-indigo-600 transition-all duration-200"
+          className="px-5 py-2 rounded-full text-white font-semibold bg-sky-500 shadow-md shadow-sky-900/20 opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300 hover:bg-sky-600 focus:outline-none"
         >
           Войти
         </a>
         <a
           href="/register"
-          className="px-5 py-2 rounded-full text-white font-semibold bg-gradient-to-r from-indigo-500 to-purple-500 shadow-lg hover:from-indigo-600 hover:to-purple-600 transition-all duration-200"
+          className="px-5 py-2 rounded-full text-white font-semibold bg-gray-700 shadow-md shadow-gray-900/20 opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300 hover:bg-gray-600 focus:outline-none"
         >
           Регистрация
         </a>
@@ -49,7 +49,7 @@ export default function UserAccount({ name, avatarUrl, isLoggedIn }: Props) {
         className="flex items-center space-x-3 focus:outline-none"
       >
         <div
-          className="w-12 h-12 rounded-full overflow-hidden border-4 border-purple-300 shadow-lg cursor-pointer transition-all duration-200 hover:border-purple-400"
+          className="w-12 h-12 rounded-full overflow-hidden border-4 border-sky-400/30 shadow-lg cursor-pointer transition-all duration-200 hover:border-sky-400"
           onClick={() => setOpen((v) => !v)}
         >
           <Image
@@ -64,11 +64,11 @@ export default function UserAccount({ name, avatarUrl, isLoggedIn }: Props) {
         <span className="text-white font-semibold text-lg">{name}</span>
       </button>
       {open && (
-        <div className="card w-80 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950/95 p-6 rounded-3xl absolute right-0 mt-2 z-20 shadow-2xl border border-gray-800 animate-slide-up backdrop-blur-md">
+        <div className="w-80 bg-gray-800/95 p-6 rounded-2xl absolute right-0 mt-2 z-20 shadow-xl border border-sky-400/30 backdrop-blur-md animate-fade-in">
           <ul className="w-full flex flex-col gap-4">
             <li>
               <button
-                className="flex items-center w-full gap-4 px-5 py-3 rounded-xl font-semibold bg-gray-800/80 text-blue-200 shadow hover:bg-blue-900/80 hover:text-white hover:scale-[1.03] transition-all duration-150"
+                className="flex items-center w-full gap-4 px-5 py-3 rounded-xl font-semibold bg-gray-700/80 text-white border border-sky-400/30 hover:bg-sky-500 hover:scale-[1.03] transition-all duration-200 focus:outline-none"
                 onClick={() => { window.location.href = '/profile'; }}
               >
                 <svg stroke="#fff" className="size-6" id="dashboard-alt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
@@ -85,7 +85,7 @@ export default function UserAccount({ name, avatarUrl, isLoggedIn }: Props) {
             </li>
             <li>
               <button
-                className="flex items-center w-full gap-4 px-5 py-3 rounded-xl font-semibold bg-gray-800/80 text-blue-200 shadow hover:bg-blue-900/80 hover:text-white hover:scale-[1.03] transition-all duration-150"
+                className="flex items-center w-full gap-4 px-5 py-3 rounded-xl font-semibold bg-gray-700/80 text-white border border-sky-400/30 hover:bg-sky-500 hover:scale-[1.03] transition-all duration-200 focus:outline-none"
                 onClick={e => e.currentTarget.blur()}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="size-6">
@@ -100,7 +100,7 @@ export default function UserAccount({ name, avatarUrl, isLoggedIn }: Props) {
             </li>
             <li>
               <button
-                className="flex items-center w-full gap-4 px-5 py-3 rounded-xl font-semibold bg-gradient-to-r from-pink-500/80 to-purple-500/80 text-white shadow hover:from-pink-600/90 hover:to-purple-600/90 hover:scale-[1.03] transition-all duration-150"
+                className="flex items-center w-full gap-4 px-5 py-3 rounded-xl font-semibold bg-sky-500 text-white shadow-md shadow-sky-900/20 opacity-90 hover:opacity-100 hover:scale-[1.03] transition-all duration-300 hover:bg-sky-600 focus:outline-none"
                 onClick={e => e.currentTarget.blur()}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="size-6">

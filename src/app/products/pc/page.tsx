@@ -1,34 +1,28 @@
-import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import Header from "@/components/Header/Header";
 import ProductCard from "@/components/ProductCard";
 
 export const metadata = {
-  title: 'HyperByte | Мышки',
+  title: 'HyperByte | Системники',
 };
 
 const products = [
-  { id: 1, name: "Мышка A4Tech", price: 350, imageUrl: "/images/1.jpg" },
-  { id: 2, name: "Logitech G102", price: 800, imageUrl: "/images/1.jpg" },
-  { id: 3, name: "Razer DeathAdder", price: 1600, imageUrl: "/images/1.jpg" },
-  { id: 4, name: "Мышка A4Tech", price: 350, imageUrl: "/images/1.jpg" },
-  { id: 5, name: "Logitech G102", price: 800, imageUrl: "/images/1.jpg" },
-  { id: 6, name: "Razer DeathAdder", price: 1600, imageUrl: "/images/1.jpg" },
-  { id: 7, name: "Мышка A4Tech", price: 350, imageUrl: "/images/1.jpg" },
-  { id: 8, name: "Logitech G102", price: 800, imageUrl: "/images/1.jpg" },
-  { id: 9, name: "Razer DeathAdder", price: 1600, imageUrl: "/images/1.jpg" },
-  { id: 10, name: "Мышка A4Tech", price: 350, imageUrl: "/images/1.jpg" },
-  { id: 11, name: "Logitech G102", price: 800, imageUrl: "/images/1.jpg" },
-  { id: 12, name: "Razer DeathAdder", price: 1600, imageUrl: "/images/1.jpg" },
+  { id: 1, name: "ПК Gaming Pro", price: 25000, imageUrl: "/images/1.jpg" },
+  { id: 2, name: "ПК Workstation", price: 35000, imageUrl: "/images/1.jpg" },
+  { id: 3, name: "ПК Home", price: 18000, imageUrl: "/images/1.jpg" },
+  { id: 4, name: "ПК Gaming Pro", price: 25000, imageUrl: "/images/1.jpg" },
+  { id: 5, name: "ПК Workstation", price: 35000, imageUrl: "/images/1.jpg" },
+  { id: 6, name: "ПК Home", price: 18000, imageUrl: "/images/1.jpg" },
 ];
 
-export default function MousePage() {
+export default function PCPage() {
   return (
     <>
       <Header />
       <main className="min-h-screen pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <h1 className="text-4xl font-extrabold text-center text-white mb-12 drop-shadow-lg tracking-wide">
-            Мышки
+            Компьютеры
           </h1>
           {/* Фильтры */}
           <div className="flex flex-wrap gap-4 justify-center items-end mb-12 p-8 rounded-2xl bg-gray-800/90 shadow-xl border border-blue-400/30 backdrop-blur-md animate-fade-in">
@@ -37,9 +31,9 @@ export default function MousePage() {
               <label className="text-white mb-1 font-semibold" htmlFor="brand">Производитель</label>
               <select id="brand" className="rounded-xl px-4 py-2 bg-gray-700 text-white border border-blue-400/30 focus:ring-2 focus:ring-blue-400 outline-none transition-all duration-200 hover:border-blue-400">
                 <option>Все</option>
-                <option>A4Tech</option>
-                <option>Logitech</option>
-                <option>Razer</option>
+                <option>ASUS</option>
+                <option>MSI</option>
+                <option>HP</option>
               </select>
             </div>
             {/* Цена */}
@@ -50,13 +44,14 @@ export default function MousePage() {
                 <input type="number" placeholder="до" min="0" className="w-20 rounded-xl px-3 py-2 bg-gray-700 text-white border border-blue-400/30 focus:ring-2 focus:ring-blue-400 outline-none transition-all duration-200 hover:border-blue-400 hide-arrows" />
               </div>
             </div>
-            {/* Тип сенсора */}
+            {/* Тип ПК */}
             <div className="flex flex-col">
-              <label className="text-white mb-1 font-semibold" htmlFor="sensor">Тип сенсора</label>
-              <select id="sensor" className="rounded-xl px-4 py-2 bg-gray-700 text-white border border-blue-400/30 focus:ring-2 focus:ring-blue-400 outline-none transition-all duration-200 hover:border-blue-400">
+              <label className="text-white mb-1 font-semibold" htmlFor="type">Тип ПК</label>
+              <select id="type" className="rounded-xl px-4 py-2 bg-gray-700 text-white border border-blue-400/30 focus:ring-2 focus:ring-blue-400 outline-none transition-all duration-200 hover:border-blue-400">
                 <option>Все</option>
-                <option>Оптический</option>
-                <option>Лазерный</option>
+                <option>Игровой</option>
+                <option>Рабочий</option>
+                <option>Домашний</option>
               </select>
             </div>
             {/* Сбросить */}

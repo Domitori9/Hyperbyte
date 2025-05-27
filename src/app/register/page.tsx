@@ -2,7 +2,7 @@ import AvatarUploader from "@/components/AvatarUploader";
 
 export default function RegisterPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 animate-fade-in">
+    <div className="min-h-screen flex items-center justify-center animate-fade-in">
       <div className="w-full max-w-md p-8 rounded-3xl shadow-2xl bg-gray-900/90 backdrop-blur-md border border-gray-800 animate-slide-up">
         <h1 className="text-4xl font-extrabold mb-6 text-center text-blue-400 drop-shadow-lg tracking-wide">Регистрация</h1>
         <div className="flex justify-center mb-6">

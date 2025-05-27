@@ -1,6 +1,6 @@
 export default function AboutPage() {
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white px-4">
+        <div className="flex flex-col items-center justify-center min-h-screen text-white px-4">
             <div className="bg-gray-800 bg-opacity-80 rounded-2xl shadow-2xl p-10 max-w-3xl w-full mt-16 mb-16">
                 <h1 className="text-5xl font-extrabold mb-6 text-center text-cyan-400 drop-shadow-lg">
                     О нас

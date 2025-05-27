@@ -4,7 +4,7 @@ import UserAccount from './UserAccount';
 
 export default function Header() {
     return (
-        <header className="relative bg-gradient-to-br from-[#1a1833] via-[#2d225a] to-[#3a2d6d] h-[260px] shadow-xl animate-fade-in">
+        <header className="relative bg-gray-900 h-[260px] shadow-xl animate-fade-in">
             <div className="absolute inset-0 bg-black/60 z-0 rounded-b-3xl" />
             <div className="relative z-10 flex flex-col h-full justify-between">
                 <div className="flex items-center justify-between px-10 pt-7">
