@@ -37,11 +37,11 @@ export default function Slider() {
             loop
             spaceBetween={32}
             slidesPerView={1}
-            className="rounded-2xl w-full h-[440px] relative z-10"
+            className="rounded-2xl w-full h-[500px] relative z-10"
           >
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx}>
-                <div className="flex flex-col items-center justify-end h-[440px] w-full relative">
+                <div className="flex flex-col items-center justify-end h-[500px] w-full relative">
                   <div className="absolute inset-0 rounded-2xl overflow-hidden">
                     <Image
                       src={slide.image}

@@ -12,7 +12,7 @@ const categories = [
 
 export default function CategorySection() {
   return (
-    <section className="py-16">
+    <section className="py-16 min-h-screen w-full">
       <h2 className="text-4xl text-white text-center mb-24 drop-shadow-lg tracking-wide">Категорії</h2>
       <div className="flex flex-col md:flex-row gap-8 px-4 max-w-6xl mx-auto items-stretch justify-center">
         {/* Левая кнопка: Большой блок 'Системники' */}
