@@ -53,7 +53,7 @@ export default function Slider() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-transparent to-transparent" />
                   </div>
                   <div className="relative z-10 w-full flex flex-col items-center justify-end pb-10">
-                    <div className="text-3xl font-extrabold text-cyan-300 drop-shadow-lg mb-2 animate-fade-in-up text-center">{slide.title}</div>
+                    <div className="text-3xl font-extrabold text-cyan-100 drop-shadow-lg mb-2 animate-fade-in-up text-center">{slide.title}</div>
                     <div className="text-lg text-blue-100/90 font-medium text-center max-w-xl animate-fade-in-up delay-100">{slide.desc}</div>
                   </div>
                 </div>
