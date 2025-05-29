@@ -4,7 +4,7 @@ import UserAccount from './UserAccount';
 
 export default function Header() {
     return (
-        <header className="relative bg-gray-900 h-[260px] rounded-b-3xl shadow-xl animate-fade-in bg-[url('/images/2.jpg')] ">
+        <header className="relative bg-gray-900 h-[260px] rounded-b-3xl shadow-xl animate-fade-in bg-[url('/images/2.jpg')] bg-cover bg-center bg-no-repeat">
             <div className="relative z-10 flex flex-col h-full justify-between">
                 <div className="flex items-center justify-between px-10 pt-7">
                     <Link href="/" aria-label="На главную">

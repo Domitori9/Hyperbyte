@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="relative z-10 min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-sky-950 pb-12">
+      <div className="relative z-10 min-h-screen pb-12">
         {/* <PopularProducts /> */}
         <section className="relative flex flex-col md:flex-row items-center justify-center pt-24 pb-16 gap-16 md:gap-32 min-h-screen w-full">
           {/* Левая часть — текст */}

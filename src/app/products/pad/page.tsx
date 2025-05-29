@@ -21,7 +21,7 @@ export default function PadPage() {
       <Header />
       <main className="min-h-screen pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <h1 className="text-4xl font-extrabold text-center text-white mb-12 drop-shadow-lg tracking-wide">
+          <h1 className="text-4xl font-extrabold text-center mb-12 drop-shadow-lg tracking-wide">
             Коврики
           </h1>
           {/* Фильтры */}

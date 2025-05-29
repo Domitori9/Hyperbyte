@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen py-12 bg-gradient-to-br from-[#23204a] via-[#18162b] to-[#18162b]">
+        <div className="min-h-screen py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h1 className="text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl drop-shadow-lg">
