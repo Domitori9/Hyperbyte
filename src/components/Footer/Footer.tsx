@@ -1,4 +1,3 @@
-import Social from '../Social/Social';
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-8 px-4 shadow-inner">
@@ -20,7 +19,6 @@ export default function Footer() {
           <a href="/Telegram" className="text-sm text-gray-400 hover:text-white transition">Telegram</a>
           <a href="/Instagram" className="text-sm text-gray-400 hover:text-white transition">Instagram</a>
           <a href="/X" className="text-sm text-gray-400 hover:text-white transition">X</a>
-          <Social />
         </div>
       </div>
       <div className="max-w-5xl mx-auto mt-8 flex flex-col items-center gap-4">
