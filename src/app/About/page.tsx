@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen py-12">
+        <div className="min-h-screen py-32">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h1 className="text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl drop-shadow-lg">
@@ -13,7 +13,7 @@ export default function AboutPage() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 items-center mb-16">
+                <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 items-center mb-64">
                     <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl border-2 border-[#1e3a8a]">
                         <Image
                             src="/images/about.jpg"
