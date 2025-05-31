@@ -13,7 +13,11 @@ const products = [
   { id: 5, name: "HyperX Cloud II", price: 2999, imageUrl: "/images/5.jpg" },
   { id: 6, name: "ASUS ROG Strix", price: 8999, imageUrl: "/images/6.jpg" },
   { id: 7, name: "MSI Clutch GM41", price: 1999, imageUrl: "/images/7.jpg" },
-  { id: 8, name: "Logitech G915", price: 5999, imageUrl: "/images/8.jpg" },
+  { id: 9, name: "Logitech G915", price: 5999, imageUrl: "/images/8.jpg" },
+  { id: 10, name: "Logitech G915", price: 5999, imageUrl: "/images/8.jpg" },
+  { id: 11, name: "Logitech G915", price: 5999, imageUrl: "/images/8.jpg" },
+  { id: 12, name: "Logitech G915", price: 5999, imageUrl: "/images/8.jpg" },
+  { id: 13, name: "Logitech G915", price: 5999, imageUrl: "/images/8.jpg" },
 ];
 
 export default function PopularProducts() {
@@ -23,7 +27,7 @@ export default function PopularProducts() {
         Популярные товары
       </h2>
       {      /* Фон для слайдера */}
-      <div className="w-full max-w-6xl px-4">
+      <div className="w-full max-w-6xl px-4 ">
         <Swiper
           modules={[Navigation]}
           navigation

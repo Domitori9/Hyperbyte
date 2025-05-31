@@ -22,7 +22,8 @@ export default function Header() {
                         <Link href="/products/headphones" className="hover:!text-blue-300 transition-colors">Наушники</Link>
                         <Link href="/products/pad" className="hover:!text-blue-300 transition-colors">Коврики</Link>
                         <Link href="/products/laptop" className="hover:!text-blue-300 transition-colors">Ноутбуки</Link>
-                        <Link href="/about" className="hover:!text-blue-300 transition-colors">О нас</Link>
+                        <span> |</span>
+                        <Link href="/about" className="!text-purple-300 transition-colors">О нас</Link>
                     </nav>
                     {/* Burger button with SVG icon */}
                     <button
@@ -45,7 +46,7 @@ export default function Header() {
                         </svg>
                     </button>
                     <div className="flex items-center gap-3">
-                        <UserAccount isLoggedIn={true} name='Dima' avatarUrl="/images/ava.jpg" />
+                        <UserAccount username="JohnDoe" avatarUrl="/ava.jpg" />
                     </div>
                 </div>
                 {/* Mobile nav (modern side drawer) */}
