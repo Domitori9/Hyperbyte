@@ -1,12 +1,10 @@
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
 import ProductCard from "@/components/ProductCard";
-import ProductFilters from "@/components/ProductFilters";
-import styles from "./page.module.css";
+import ProductFilters from "@/components/MouseFilters";
+import styles from "../../styles/page.module.css";
 
-export const metadata = {
-  title: 'HyperByte | Мышки',
-};
+// export const metadata = {
+//   title: 'HyperByte | Мышки',
+// };
 // This file is part of HyperByte, a fictional e-commerce platform.
 const products = [
   { id: 1, name: "Мышка A4Tech", price: 350, imageUrl: "/images/1.jpg" },
@@ -26,7 +24,7 @@ const products = [
 export default function MousePage() {
   return ( 
     <>
-    <Header />  
+  
       <div className={styles.container}>
       {/* Левая панель фильтров */}
       <div className={styles.filters}>
@@ -42,7 +40,7 @@ export default function MousePage() {
         </div>
       </div>
     </div>
-      <Footer />
+ 
     </>
   )
 }
