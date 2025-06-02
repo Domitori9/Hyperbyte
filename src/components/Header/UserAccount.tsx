@@ -5,9 +5,10 @@ interface UserAccountProps {
   avatarUrl?: string;
 }
 
-const UserAccount: React.FC<UserAccountProps> = ({ username, avatarUrl }) => {
+ 
+export default function UserAccount({ username, avatarUrl }: UserAccountProps) {
   return (
-    <div className="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
+    <div className="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-gray-500/40 transition-colors duration-200 cursor-pointer">
       <div className="relative">
         <div className="w-10 h-10 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600">
           {avatarUrl ? (
@@ -30,6 +31,6 @@ const UserAccount: React.FC<UserAccountProps> = ({ username, avatarUrl }) => {
       </div>
     </div>
   );
-};
+}
 
-export default UserAccount;
+
