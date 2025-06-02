@@ -22,8 +22,8 @@ const products = [
 
 export default function PopularProducts() {
   return (
-    <section className="w-full py-20 flex flex-col items-center justify-center bg-gradient-to-br from-gray-950/80 via-gray-900/70 to-sky-950/80 relative">
-      <h2 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 mb-14 tracking-tight text-center drop-shadow-xl uppercase">
+    <section className="w-full h-screen py-20 flex flex-col items-center justify-center bg-gradient-to-br from-gray-950/80 via-gray-900/70 to-sky-950/80 relative">
+      <h2 className="text-3xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 mb-14 tracking-tight text-center drop-shadow-xl uppercase">
         Популярные товары
       </h2>
       {      /* Фон для слайдера */}
@@ -38,6 +38,7 @@ export default function PopularProducts() {
             1024: { slidesPerView: 4 },
           }}
           className="popular-products-swiper"
+          style={{ paddingTop: 45, paddingBottom: 45, paddingLeft: 20, paddingRight: 20 }}  
         >
           {products.map((product) => (
             <SwiperSlide key={product.id}>

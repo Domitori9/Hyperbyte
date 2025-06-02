@@ -23,11 +23,11 @@ export default function UserAccount({ username, avatarUrl }: UserAccountProps) {
             </div>
           )}
         </div>
-        <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+        {/* <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div> */}
       </div>
       <div className="flex flex-col">
         <span className="font-medium text-white">{username}</span>
-        <span className="text-sm text-gray-500">Online</span>
+        <span className="text-sm text-gray-500">💸</span>
       </div>
     </div>
   );

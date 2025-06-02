@@ -7,7 +7,7 @@ import UserAccount from './UserAccount';
 export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
     return (
-        <header className="relative rounded-b-3xl animate-fade-in bg-transparent">
+        <header className="relative  animate-fade-in ">
             <div className="max-w-[1440px] mx-auto w-full px-4 sm:px-8 flex flex-col gap-4">
                 <div className="flex items-center justify-between py-6">
                     <Link href="/" aria-label="На главную">
@@ -46,7 +46,7 @@ export default function Header() {
                         </svg>
                     </button>
                     <div className="flex items-center gap-3">
-                        <UserAccount username="JohnDoe" avatarUrl="/ava.jpg" />
+                        <UserAccount username="Domitori" avatarUrl="/ava.jpg" />
                     </div>
                 </div>
                 {/* Mobile nav (modern side drawer) */}

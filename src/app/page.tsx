@@ -44,7 +44,7 @@ export default function Home() {
           </div>
         </section>
         {/* Секция категорий товаров */}
-        <CategorySection />
+        {/* <CategorySection /> */}
       </div>
 
       {/* Популярные товары */}
