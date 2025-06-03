@@ -14,7 +14,7 @@ export default function Header() {
                         <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white drop-shadow-lg hover:text-blue-300 transition-colors duration-200">HyperByte</span>
                     </Link>
                     {/* Desktop nav */}
-                    <nav className="hidden lg:flex gap-4 xl:gap-8 text-base xl:text-lg font-medium bg-white/10 backdrop-blur-2xl rounded-full shadow-lg px-4 xl:px-8 py-2">
+                    <nav className="hidden lg:flex gap-4 xl:gap-8 text-base xl:text-lg font-medium bg-white/10 backdrop-blur-2xl rounded-2xl shadow-lg px-4 xl:px-8 py-2">
                         <Link href="/products/pc" className="hover:!text-blue-300 transition-colors">Системники</Link>
                         <Link href="/products/mouse" className="hover:!text-blue-300 transition-colors">Мыши</Link>
                         <Link href="/products/keyboards" className="hover:!text-blue-300 transition-colors">Клавиатуры</Link>
