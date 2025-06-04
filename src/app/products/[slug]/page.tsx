@@ -19,6 +19,9 @@ const productsData: Record<string, any[]> = {
   ],
   mouse: [
     { id: 1, name: "Мышка A4Tech", price: 350, imageUrl: "/images/1.jpg" },
+    { id: 2, name: "Мышка A4Tech", price: 350, imageUrl: "/images/1.jpg" },
+    { id: 3, name: "Мышка A4Tech", price: 350, imageUrl: "/images/1.jpg" },
+    { id: 4, name: "Мышка A4Tech", price: 350, imageUrl: "/images/1.jpg" },
   ],
   keyboards: [
     { id: 1, name: "Клавиатура Logitech", price: 1200, imageUrl: "/images/1.jpg" },
@@ -48,6 +51,27 @@ const filtersMap: Record<string, React.FC> = {
   laptop: LaptopFilters,
 };
 
+// Маппинг метаданных для каждой категории
+const metadataMap: Record<string, { title: string; description: string }> = {
+  pc: { title: "ПК", description: "Игровые ПК Hyperbyte" },
+  mouse: { title: "Мыши", description: "Игровые мыши Hyperbyte" },
+  keyboards: { title: "Клавиатуры", description: "Игровые клавиатуры Hyperbyte" },
+  monitor: { title: "Мониторы", description: "Игровые мониторы Hyperbyte" },
+  headphones: { title: "Наушники", description: "Игровые наушники Hyperbyte" },
+  pad: { title: "Коврики", description: "Игровые коврики Hyperbyte" },
+  laptop: { title: "Ноутбуки", description: "Игровые ноутбуки Hyperbyte" },
+};
+
+// Функция генерации метаданных для Next.js App Router
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const { slug } = await Promise.resolve(params);
+  const meta = metadataMap[slug] || { title: "Категория", description: "Товары Hyperbyte" };
+  return {
+    title: meta.title,
+    description: meta.description,
+  };
+}
+
 // Next.js 14+ App Router: params must be awaited in dynamic routes
 export default async function ProductCategoryPage({ params }: { params: { slug: string } }) {
   const { slug } = await Promise.resolve(params);
@@ -57,6 +81,8 @@ export default async function ProductCategoryPage({ params }: { params: { slug: 
   if (!products || !FilterComponent) return notFound();
 
   return (
+    <>
+    <h1 className="text-center text-5xl mt-4">{metadataMap[slug]?.title || "Категория"}</h1>
     <div className={styles.container}>
       <div className={styles.filters}>
         <FilterComponent />
@@ -69,5 +95,6 @@ export default async function ProductCategoryPage({ params }: { params: { slug: 
         </div>
       </div>
     </div>
+    </>
   );
 }
