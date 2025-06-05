@@ -21,7 +21,7 @@ export default function Home() {
             <h1 className="text-sky-400 text-4xl text-center sm:text-left sm:text-6xl xl:text-7xl font-extrabold mb-8 drop-shadow-2xl leading-tight">
               HyperByte — твой мир техники
             </h1>
-            <p className="text-gray-200 text-justify text-lg  sm:text-2xl mb-10 leading-relaxed">
+            <p className="text-justify text-lg  sm:text-2xl mb-10 leading-relaxed">
               Добро пожаловать в HyperByte! Здесь вы найдёте лучшие новинки техники и аксессуаров для геймеров и профессионалов. Откройте для себя топовые устройства, которые подчеркнут ваш стиль и повысят продуктивность.
               <br className="hidden md:block" />
               <span className="text-sky-400 font-semibold block mt-2">Погрузись в мир современных технологий!</span>
@@ -51,7 +51,7 @@ export default function Home() {
       <PopularProducts />
 
       {/* Секция Контакты */}
-      <section id="contacts" className="bg-slate-900 py-16 px-4 mt-12 rounded-3xl shadow-xl max-w-4xl mx-auto mb-16 animate-fade-in-up">
+      <section id="contacts" className="bg-slate-900  py-16 px-4 mt-12 rounded-3xl shadow-xl max-w-4xl mx-auto mb-16 animate-fade-in-up">
         <h2 className="text-3xl sm:text-4xl font-bold text-sky-400 mb-8 text-center drop-shadow">Контакты</h2>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-lg text-gray-200">
           {/* Почта */}

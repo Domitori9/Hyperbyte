@@ -19,10 +19,10 @@ export default function CategorySection() {
         <div className="flex-shrink-0 flex flex-col justify-center md:w-1/3">
           <a
             href="/products/pc"
-            className="relative group bg-gradient-to-br from-gray-800/90 to-gray-900/90 border border-sky-400/30 rounded-3xl px-8 py-16 flex flex-col items-center justify-center text-white shadow-2xl transition-all duration-300 ease-out h-full min-h-[340px] md:min-h-[420px] hover:scale-105 hover:shadow-sky-400/20 hover:z-10 hover:border-sky-400/60 animate-fade-in cursor-pointer backdrop-blur-sm"
+            className="relative group bg-gradient-to-br from-gray-800/90 to-gray-900/90 border border-sky-400/30 rounded-3xl px-8 py-16 flex flex-col items-center justify-center shadow-2xl transition-all duration-300 ease-out h-full min-h-[340px] md:min-h-[420px] hover:scale-105 hover:shadow-sky-400/20 hover:z-10 hover:border-sky-400/60 animate-fade-in cursor-pointer backdrop-blur-sm"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 to-blue-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="font-extrabold text-3xl sm:text-4xl tracking-tight text-center mb-8 text-white drop-shadow-lg group-hover:text-sky-200 transition-all duration-300">
+            <span className="font-extrabold text-3xl sm:text-4xl tracking-tight text-center mb-8 drop-shadow-lg group-hover:text-sky-200 transition-all duration-300">
               {categories[0].name}
             </span>
             <p className="text-base text-sky-100/80 text-center leading-relaxed mb-6 max-w-[95%]">
@@ -49,11 +49,11 @@ export default function CategorySection() {
                   <a
                     key={cat.name}
                     href={href}
-                    className="relative group bg-gradient-to-br from-gray-800/90 to-gray-900/90 border border-sky-400/30 rounded-3xl px-6 py-10 flex flex-col items-center justify-center text-white shadow-xl transition-all duration-300 ease-out w-64 max-w-full hover:scale-105 hover:shadow-sky-400/20 hover:z-10 hover:border-sky-400/60 animate-fade-in cursor-pointer backdrop-blur-sm"
+                    className="relative group bg-gradient-to-br from-gray-800/90 to-gray-900/90 border border-sky-400/30 rounded-3xl px-6 py-10 flex flex-col items-center justify-center shadow-xl transition-all duration-300 ease-out w-64 max-w-full hover:scale-105 hover:shadow-sky-400/20 hover:z-10 hover:border-sky-400/60 animate-fade-in cursor-pointer backdrop-blur-sm"
                     style={{ animationDelay: `${index * 80}ms` }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 to-blue-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-center mb-6 text-white drop-shadow-lg group-hover:text-sky-200 transition-all duration-300">
+                    <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-center mb-6 drop-shadow-lg group-hover:text-sky-200 transition-all duration-300">
                       {cat.name}
                     </span>
                     <p className="text-sm text-sky-100/80 text-center leading-relaxed mb-4 max-w-[90%]">
@@ -79,11 +79,11 @@ export default function CategorySection() {
                   <a
                     key={cat.name}
                     href={href}
-                    className="relative group bg-gradient-to-br from-gray-800/90 to-gray-900/90 border border-sky-400/30 rounded-3xl px-6 py-10 flex flex-col items-center justify-center text-white shadow-xl transition-all duration-300 ease-out w-64 max-w-full hover:scale-105 hover:shadow-sky-400/20 hover:z-10 hover:border-sky-400/60 animate-fade-in cursor-pointer backdrop-blur-sm"
+                    className="relative group bg-gradient-to-br from-gray-800/90 to-gray-900/90 border border-sky-400/30 rounded-3xl px-6 py-10 flex flex-col items-center justify-center shadow-xl transition-all duration-300 ease-out w-64 max-w-full hover:scale-105 hover:shadow-sky-400/20 hover:z-10 hover:border-sky-400/60 animate-fade-in cursor-pointer backdrop-blur-sm"
                     style={{ animationDelay: `${index * 80}ms` }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 to-blue-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-center mb-6 text-white drop-shadow-lg group-hover:text-sky-200 transition-all duration-300">
+                    <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-center mb-6 drop-shadow-lg group-hover:text-sky-200 transition-all duration-300">
                       {cat.name}
                     </span>
                     <p className="text-sm text-sky-100/80 text-center leading-relaxed mb-4 max-w-[90%]">

@@ -34,21 +34,21 @@ export default function UserProfile() {
                             <AvatarUploader />
                         </div>
                         <div className="text-lg mb-2 text-sky-200 font-semibold">Текущая информация:</div>
-                        <div className="text-sky-100">Имя: <span className="font-bold text-white">{mockUser.name}</span></div>
-                        <div className="text-sky-100">Email: <span className="font-bold text-white">{mockUser.email}</span></div>
+                        <div className="text-sky-100">Имя: <span className="font-bold">{mockUser.name}</span></div>
+                        <div className="text-sky-100">Email: <span className="font-bold">{mockUser.email}</span></div>
                     </div>
                     <div className="flex-1 flex flex-col gap-8">
                         <div className="flex gap-4 mb-4">
                             <button
                                 type="button"
-                                className={`px-7 py-3 rounded-2xl font-bold text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 ${activeTab === 'info' ? 'bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500 text-white shadow-lg' : 'bg-gray-800/80 text-sky-200 hover:bg-gray-700/80'}`}
+                                className={`px-7 py-3 rounded-2xl font-bold text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 ${activeTab === 'info' ? 'bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500 shadow-lg' : 'bg-gray-800/80 text-sky-200 hover:bg-gray-700/80'}`}
                                 onClick={() => setActiveTab('info')}
                             >
                                 Личная информация
                             </button>
                             <button
                                 type="button"
-                                className={`px-7 py-3 rounded-2xl font-bold text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 ${activeTab === 'password' ? 'bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500 text-white shadow-lg' : 'bg-gray-800/80 text-sky-200 hover:bg-gray-700/80'}`}
+                                className={`px-7 py-3 rounded-2xl font-bold text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 ${activeTab === 'password' ? 'bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500 shadow-lg' : 'bg-gray-800/80 text-sky-200 hover:bg-gray-700/80'}`}
                                 onClick={() => setActiveTab('password')}
                             >
                                 Пароль

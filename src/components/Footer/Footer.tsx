@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-8 px-4 shadow-inner">
+    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 py-8 px-4 shadow-inner">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex flex-col gap-2">
           <span className="font-semibold text-lg">О нас</span>

@@ -82,7 +82,7 @@ export default async function ProductCategoryPage({ params }: { params: { slug: 
 
   return (
     <>
-    <h1 className="text-center text-5xl mt-4">{metadataMap[slug]?.title || "Категория"}</h1>
+    <h1 className="text-center text-5xl mt-24">{metadataMap[slug]?.title || "Категория"}</h1>
     <div className={styles.container}>
       <div className={styles.filters}>
         <FilterComponent />
