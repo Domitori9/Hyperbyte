@@ -8,18 +8,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [catOpen, setCatOpen] = useState(false);
   const catRef = useRef<HTMLDivElement>(null);
-
-  // Закрытие меню категорий по клику вне
-  useEffect(() => {
-    if (!catOpen) return;
-    function handleClick(e: MouseEvent) {
-      if (catRef.current && !catRef.current.contains(e.target as Node)) {
-        setCatOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
-  }, [catOpen]);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   // Блокировка скролла body при открытом mobile drawer
   useEffect(() => {
@@ -30,6 +19,28 @@ export default function Header() {
     }
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
+
+  // Очистка таймаута при размонтировании
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setCatOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setCatOpen(false);
+    }, 300);
+  };
 
   return (
     <header className="relative w-full animate-fade-in z-40">
@@ -64,7 +75,13 @@ export default function Header() {
           "
         >
           {/* Категории: выпадающее меню (desktop) */}
-          <div ref={catRef} className="relative" tabIndex={0}>
+          <div 
+            ref={catRef} 
+            className="relative" 
+            tabIndex={0}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             <button
               className="
                 // layout
@@ -80,8 +97,6 @@ export default function Header() {
               "
               aria-haspopup="true"
               aria-expanded={catOpen}
-              onClick={() => setCatOpen(v => !v)}
-              onKeyDown={e => { if (e.key === 'Escape') setCatOpen(false); }}
             >
               <span>Категории</span>
               <svg
@@ -118,14 +133,14 @@ export default function Header() {
               role="menu"
               aria-label="Категории"
             >
-              <Link href="/products/pc" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors" onClick={() => setCatOpen(false)}>Системники</Link>
-              <Link href="/products/mouse" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors" onClick={() => setCatOpen(false)}>Мыши</Link>
-              <Link href="/products/keyboards" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors" onClick={() => setCatOpen(false)}>Клавиатуры</Link>
-              <Link href="/products/monitor" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors" onClick={() => setCatOpen(false)}>Мониторы</Link>
-              <Link href="/products/headphones" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors" onClick={() => setCatOpen(false)}>Наушники</Link>
-              <Link href="/products/pad" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors" onClick={() => setCatOpen(false)}>Коврики</Link>
-              <Link href="/products/laptop" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors" onClick={() => setCatOpen(false)}>Ноутбуки</Link>
-              <Link href="/about" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors whitespace-nowrap" onClick={() => setCatOpen(false)}>О нас</Link>
+              <Link href="/products/pc" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors">Системники</Link>
+              <Link href="/products/mouse" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors">Мыши</Link>
+              <Link href="/products/keyboards" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors">Клавиатуры</Link>
+              <Link href="/products/monitor" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors">Мониторы</Link>
+              <Link href="/products/headphones" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors">Наушники</Link>
+              <Link href="/products/pad" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors">Коврики</Link>
+              <Link href="/products/laptop" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors">Ноутбуки</Link>
+              <Link href="/about" className="block px-6 py-3 text-gray-100 hover:bg-blue-900/40 transition-colors whitespace-nowrap">О нас</Link>
             </div>
           </div>
           {/* Поиск по центру (desktop) */}
