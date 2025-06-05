@@ -1,11 +1,11 @@
 import ProductCard from "@/components/ProductCard";
-import KeyboardFilters from "@/components/KeyboardFilters";
-import HeadphonesFilters from "@/components/HeadphonesFilters";
-import MouseFilters from "@/components/MouseFilters";
-import MonitorFilters from "@/components/MonitorFilters";
-import PadFilters from "@/components/PadFilters";
-import LaptopFilters from "@/components/LaptopFilters";
-import PCFilters from "@/components/PCFilters";
+import KeyboardFilters from "@/components/filters/KeyboardFilters";
+import HeadphonesFilters from "@/components/filters/HeadphonesFilters";
+import MouseFilters from "@/components/filters/MouseFilters";
+import MonitorFilters from "@/components/filters/MonitorFilters";
+import PadFilters from "@/components/filters/PadFilters";
+import LaptopFilters from "@/components/filters/LaptopFilters";
+import PCFilters from "@/components/filters/PCFilters";
 import styles from "../../styles/page.module.css";
 import { notFound } from "next/navigation";
 
