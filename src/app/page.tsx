@@ -3,6 +3,7 @@ import Footer from "@/components/Footer/Footer";
 import Slider from "./../components/Slider";
 import CategorySection from "@/components/CategorySection";
 import PopularProducts from "@/components/PopularProducts";
+import MenuBarMobile from "@/components/MenuBarMobile/MenuBarMobile";
 
 export const metadata = {
   title: 'HyperByte | Главная',
@@ -72,7 +73,7 @@ export default function Home() {
         </div>
       </section>
       {/* Конец секции Контакты */}
-
+      
       {/* Подвал сайта */}
       <Footer />
     </>

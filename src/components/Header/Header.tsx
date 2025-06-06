@@ -26,7 +26,7 @@ const CATEGORIES: Category[] = [
 const styles = {
   header: {
     base: 'relative w-full animate-fade-in z-40',
-    container: 'w-full px-4 fixed bg-white/5 backdrop-blur-2xl sm:px-8 flex items-center justify-between gap-4 py-3 lg:py-6',
+    container: 'w-full px-4 fixed bg-white/5 backdrop-blur-2xl sm:px-8 flex items-center justify-between gap-6 py-3 lg:py-6',
     spacer: 'h-[56px] lg:h-[88px]',
   },
   logo: {
@@ -56,7 +56,23 @@ const styles = {
     },
   },
   user: {
-    container: 'hidden lg:flex items-center gap-3 flex-shrink-0 max-w-[160px] overflow-hidden justify-end',
+    container: 'hidden lg:flex items-center gap-4 flex-shrink-0',
+    cart: {
+      container: 'relative',
+      button: 'flex items-center justify-center w-14 h-14 rounded-full bg-white/10 backdrop-blur-2xl hover:bg-white/20 transition-colors cursor-pointer',
+      counter: 'absolute -top-1 -right-1 w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg border-2 border-gray-900',
+      dropdown: 'absolute right-0 top-full mt-2 w-80 bg-gray-900 rounded-2xl shadow-2xl border border-blue-800 py-4 transition-all duration-200 z-50',
+      empty: 'px-6 py-8 text-center text-gray-400',
+      items: 'max-h-[400px] overflow-y-auto',
+      item: 'flex items-center gap-4 px-6 py-3 hover:bg-blue-900/40 transition-colors',
+      itemImage: 'w-12 h-12 rounded-lg object-cover',
+      itemInfo: 'flex-1',
+      itemName: 'text-sm font-medium text-white',
+      itemPrice: 'text-sm text-blue-300',
+      total: 'px-6 py-4 border-t border-blue-800/50 mt-2',
+      totalText: 'flex justify-between text-sm font-medium text-white',
+      cartButton: 'mt-4 mx-6 py-2.5 px-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl text-sm font-medium transition-all duration-200 text-center block w-[calc(100%-3rem)] shadow-lg hover:shadow-xl hover:scale-[1.02]',
+    },
   },
 } as const;
 
@@ -183,6 +199,97 @@ const MobileDrawer = memo(({ isOpen, onClose }: { isOpen: boolean; onClose: () =
 
 MobileDrawer.displayName = 'MobileDrawer';
 
+const CartDropdown = memo(() => {
+  const [isOpen, setIsOpen] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  const handleMouseEnter = useCallback(() => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsOpen(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    timeoutRef.current = setTimeout(() => setIsOpen(false), 300);
+  }, []);
+
+  // Mock cart items - replace with actual cart data later
+  const cartItems = [
+    {
+      id: 1,
+      name: 'Gaming Mouse X1',
+      price: 2999,
+      image: '/images/1.jpg',
+    },
+    {
+      id: 2,
+      name: 'Mechanical Keyboard Pro',
+      price: 4999,
+      image: '/images/2.jpg',
+    },
+  ];
+
+  const total = cartItems.reduce((sum, item) => sum + item.price, 0);
+
+  return (
+    <div 
+      className={styles.user.cart.container}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <button
+        className={styles.user.cart.button}
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+      >
+        <img src="/icon/trash.svg" alt="Корзина" className="w-5 h-5 brightness-0 invert" />
+        {cartItems.length > 0 && (
+          <div className={styles.user.cart.counter}>
+            {cartItems.length}
+          </div>
+        )}
+      </button>
+      <div
+        className={`${styles.user.cart.dropdown} ${
+          isOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
+        }`}
+        role="menu"
+        aria-label="Корзина"
+      >
+        {cartItems.length > 0 ? (
+          <>
+            <div className={styles.user.cart.items}>
+              {cartItems.map((item) => (
+                <div key={item.id} className={styles.user.cart.item}>
+                  <img src={item.image} alt={item.name} className={styles.user.cart.itemImage} />
+                  <div className={styles.user.cart.itemInfo}>
+                    <div className={styles.user.cart.itemName}>{item.name}</div>
+                    <div className={styles.user.cart.itemPrice}>{item.price.toLocaleString()} ₴</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className={styles.user.cart.total}>
+              <div className={styles.user.cart.totalText}>
+                <span>Итого:</span>
+                <span>{total.toLocaleString()} ₴</span>
+              </div>
+            </div>
+            <Link href="/cart" className={styles.user.cart.cartButton}>
+              Перейти в корзину
+            </Link>
+          </>
+        ) : (
+          <div className={styles.user.cart.empty}>
+            В корзине пока ничего нет
+          </div>
+        )}
+      </div>
+    </div>
+  );
+});
+
+CartDropdown.displayName = 'CartDropdown';
+
 // Main Component
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -207,6 +314,7 @@ export default function Header() {
         {/* User Account */}
         <div className={styles.user.container}>
           <UserAccount username="Domitori" avatarUrl="/ava.jpg" />
+          <CartDropdown />
         </div>
 
         {/* Mobile Navigation */}
