@@ -45,9 +45,9 @@ export default function Header() {
   return (
     <header className="relative w-full animate-fade-in z-40">
       {/* Верхняя панель */}
-      <div className="w-full px-4 fixed bg-white/5 backdrop-blur-2xl sm:px-8 flex items-center justify-between gap-4 py-6">
-        {/* Логотип */}
-        <Link href="/" aria-label="На главную" className="flex-shrink-0">
+      <div className="w-full px-4 fixed bg-white/5 backdrop-blur-2xl sm:px-8 flex items-center justify-between gap-4 py-3 lg:py-6">
+        {/* Логотип (только для десктопа) */}
+        <Link href="/" aria-label="На главную" className="hidden lg:flex flex-shrink-0">
           <span
             className="
               // color
@@ -166,41 +166,14 @@ export default function Header() {
         </div>
         {/* Мобильная верхняя панель */}
         <div className="flex w-full items-center justify-between lg:hidden">
-          {/* Бургер-меню */}
-          <button
-            className={`
-              flex items-center justify-center w-11 h-11 rounded-full
-              // (transition)
-              transition-all duration-300 focus:outline-none
-              // color
-              ${mobileOpen ? 'bg-blue-600 shadow-2xl scale-110' : 'bg-white/10 hover:bg-white/20'}
-            `}
-            onClick={() => setMobileOpen(v => !v)}
-            aria-label="Открыть меню"
-          >
-            <svg
-              className={`
-                w-7 h-7 text-white transition-all duration-300
-                ${mobileOpen ? 'rotate-90' : ''}
-              `}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="4" y1="7" x2="20" y2="7" className={`transition-all duration-300 ${mobileOpen ? 'translate-y-[10px] rotate-45' : ''}`} />
-              <line x1="4" y1="12" x2="20" y2="12" className={`transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} />
-              <line x1="4" y1="17" x2="20" y2="17" className={`transition-all duration-300 ${mobileOpen ? '-translate-y-[10px] -rotate-45' : ''}`} />
-            </svg>
-          </button>
-          {/* Аккаунт справа */}
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <UserAccount username="Domitori" avatarUrl="/ava.jpg" />
+          {/* Поиск (мобильный) */}
+          <div className="w-full mx-4">
+            <Search />
           </div>
         </div>
       </div>
+      {/* Spacer для предотвращения перекрытия контента */}
+      <div className="h-[56px] lg:h-[88px]"></div>
       {/* Mobile nav (side drawer) */}
       <div
         className={`
