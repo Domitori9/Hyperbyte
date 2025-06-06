@@ -45,7 +45,7 @@ export default function Header() {
   return (
     <header className="relative w-full animate-fade-in z-40">
       {/* Верхняя панель */}
-      <div className="w-full px-4 sm:px-8 flex items-center justify-between gap-4 py-6">
+      <div className="w-full px-4 fixed bg-white/5 backdrop-blur-2xl sm:px-8 flex items-center justify-between gap-4 py-6">
         {/* Логотип */}
         <Link href="/" aria-label="На главную" className="flex-shrink-0">
           <span
@@ -63,7 +63,7 @@ export default function Header() {
         <nav
           className="
             // layout
-            hidden lg:flex gap-4 xl:gap-8 items-center w-full max-w-[1100px] mx-auto
+            hidden lg:flex gap-4 xl:gap-8 items-center w-full max-w-[1300px] mx-auto
             // font
             text-base font-medium
             // background
@@ -159,7 +159,7 @@ export default function Header() {
         <div
           className="
             // layout
-            hidden lg:flex items-center gap-3 flex-shrink-0 max-w-[140px] overflow-hidden justify-end
+            hidden lg:flex items-center gap-3 flex-shrink-0 max-w-[160px] overflow-hidden justify-end
           "
         >
           <UserAccount username="Domitori" avatarUrl="/ava.jpg" />
