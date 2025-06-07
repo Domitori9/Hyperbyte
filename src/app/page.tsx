@@ -28,7 +28,7 @@ export default function Home() {
               <span className="text-sky-400 font-semibold block mt-2">Погрузись в мир современных технологий!</span>
             </p>
             {/* Кнопки действий */}
-            <div className="flex flex-wrap gap-5">
+            <div className="flex justify-center flex-wrap gap-5">
               <a href="/about" className="inline-block px-10 py-4 rounded-full border-2 border-sky-400 text-sky-300 text-xl font-bold shadow-md hover:bg-sky-900/20 hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sky-200">
                 О нас
               </a>

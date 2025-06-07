@@ -23,7 +23,7 @@ export default function AboutPage() {
                             priority
                         />
                     </div>
-                    <div className="space-y-6">
+                    <div className="space-y-6 items-center text-center lg:text-left">
                         <h2 className="text-3xl font-bold text-white">Наша история</h2>
                         <p className="text-lg text-gray-300">
                             HyperByte - это современный интернет-магазин компьютерной техники и аксессуаров, 
