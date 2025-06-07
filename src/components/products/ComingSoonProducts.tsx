@@ -3,34 +3,28 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/components/products/ProductCard";
 import { useRef } from "react";
 import type { Swiper as SwiperType } from 'swiper';
 
 const products = [
-  { id: 1, name: "Logitech G Pro X Superlight", price: 4999, imageUrl: "/images/1.jpg" },
-  { id: 2, name: "Hator HURRICANE", price: 2499, imageUrl: "/images/2.jpg" },
-  { id: 3, name: "Razer Viper Ultimate", price: 5299, imageUrl: "/images/3.jpg" },
-  { id: 4, name: "SteelSeries Apex Pro", price: 7999, imageUrl: "/images/4.jpg" },
-  { id: 5, name: "HyperX Cloud II", price: 2999, imageUrl: "/images/5.jpg" },
-  { id: 6, name: "ASUS ROG Strix", price: 8999, imageUrl: "/images/6.jpg" },
-  { id: 7, name: "MSI Clutch GM41", price: 1999, imageUrl: "/images/7.jpg" },
-  { id: 9, name: "Logitech G915", price: 5999, imageUrl: "/images/8.jpg" },
-  { id: 10, name: "Logitech G915", price: 5999, imageUrl: "/images/8.jpg" },
-  { id: 11, name: "Logitech G915", price: 5999, imageUrl: "/images/8.jpg" },
-  { id: 12, name: "Logitech G915", price: 5999, imageUrl: "/images/8.jpg" },
-  { id: 13, name: "Logitech G915", price: 5999, imageUrl: "/images/8.jpg" },
+  { id: 1, name: "ASUS ROG Swift OLED", price: 89999, imageUrl: "/images/1.jpg" },
+  { id: 2, name: "Logitech G Pro X Superlight 2", price: 15999, imageUrl: "/images/2.jpg" },
+  { id: 3, name: "SteelSeries Apex Pro TKL Wireless", price: 24999, imageUrl: "/images/3.jpg" },
+  { id: 4, name: "Razer DeathAdder V3 Pro", price: 12999, imageUrl: "/images/4.jpg" },
+  { id: 5, name: "HyperX Cloud III Wireless", price: 17999, imageUrl: "/images/5.jpg" },
+  { id: 6, name: "Corsair K70 RGB Pro", price: 19999, imageUrl: "/images/6.jpg" },
 ];
 
-export default function PopularProducts() {
+export default function ComingSoonProducts() {
   const navigationPrevRef = useRef<HTMLButtonElement>(null);
   const navigationNextRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <section className="w-full  py-12 flex flex-col items-center justify-center relative">
+    <section className="w-full py-12 flex flex-col items-center justify-center relative">
       <div className="w-full px-4 relative">
         <h2 className="text-3xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 tracking-tight drop-shadow-xl uppercase text-left">
-          Популярные товары
+          Скоро в продаже
         </h2>
         {/* Custom Navigation Buttons */}
         <button
@@ -62,7 +56,7 @@ export default function PopularProducts() {
               swiper.params.navigation.nextEl = navigationNextRef.current;
             }
           }}
-          spaceBetween={20}
+          spaceBetween={32}
           slidesPerView={1}
           breakpoints={{
             640: { slidesPerView: 2 },
@@ -79,4 +73,4 @@ export default function PopularProducts() {
       </div>
     </section>
   );
-}
+} 

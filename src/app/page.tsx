@@ -1,9 +1,9 @@
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import Slider from "@/components/Slider";
-import PopularProducts from "@/components/PopularProducts";
-import NewProducts from "@/components/NewProducts";
-import ComingSoonProducts from "@/components/ComingSoonProducts";
+import Slider from "@/components/ui/Slider";
+import PopularProducts from "@/components/products/PopularProducts";
+import NewProducts from "@/components/products/NewProducts";
+import ComingSoonProducts from "@/components/products/ComingSoonProducts";
 
 export const metadata = {
   title: 'HyperByte | Главная',

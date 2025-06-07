@@ -1,5 +1,5 @@
 "use client";
-import AvatarUploader from "@/components/AvatarUploader";
+import AvatarUploader from "@/components/profile/AvatarUploader";
 import { useState } from "react";
 
 // Пример текущих данных пользователя (замените на реальные данные из вашего источника)

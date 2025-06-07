@@ -1,4 +1,4 @@
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/components/products/ProductCard";
 import KeyboardFilters from "@/components/filters/KeyboardFilters";
 import HeadphonesFilters from "@/components/filters/HeadphonesFilters";
 import MouseFilters from "@/components/filters/MouseFilters";

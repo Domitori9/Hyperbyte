@@ -1,5 +1,5 @@
 'use client';
-import AvatarUploader from "@/components/AvatarUploader";
+import AvatarUploader from "@/components/profile/AvatarUploader";
 import { useState } from "react";
 
 export default function RegisterPage() {
