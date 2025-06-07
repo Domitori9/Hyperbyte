@@ -2,6 +2,8 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Slider from "@/components/Slider";
 import PopularProducts from "@/components/PopularProducts";
+import NewProducts from "@/components/NewProducts";
+import ComingSoonProducts from "@/components/ComingSoonProducts";
 
 export const metadata = {
   title: 'HyperByte | Главная',
@@ -35,19 +37,29 @@ export default function Home() {
               >
                 О нас
               </a>
-              <a 
+              {/* <a 
                 href="#categories" 
-                className="px-6 py-3 rounded-full bg-sky-500 text-white hover:bg-sky-600 transition-colors"
+                className="px-6 py-3 rounded-full  bg-sky-500 text-white hover:bg-sky-600 transition-colors"
               >
                 Смотреть категории
-              </a>
+              </a> */}
             </div>
           </div>
         </section>
 
+        {/* New Products */}
+        <section>
+          <NewProducts />
+        </section>
+
         {/* Popular Products */}
-        <section className="py-12 sm:py-16">
+        <section >
           <PopularProducts />
+        </section>
+
+        {/* Coming Soon Products */}
+        <section >
+          <ComingSoonProducts />
         </section>
 
         {/* Contacts Section */}
