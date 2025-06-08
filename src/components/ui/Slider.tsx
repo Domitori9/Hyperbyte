@@ -35,7 +35,7 @@ export default function Slider() {
           {/* Custom Navigation Buttons */}
           <button
             ref={navigationPrevRef}
-            className="hidden sm:flex absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-6 h-6 sm:w-12 sm:h-12 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 items-center justify-center text-white hover:text-white hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-white/20 group"
+            className="hidden sm:flex absolute left-1 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-6 h-6 sm:w-12 sm:h-12 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 items-center justify-center text-white hover:text-white hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-white/20 group"
 
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3 sm:w-6 sm:h-6 transform group-hover:-translate-x-0.5 transition-transform">

@@ -241,7 +241,7 @@ const CartDropdown = memo(() => {
         aria-haspopup="true"
         aria-expanded={isOpen}
       >
-        <img src="/icon/trash.svg" alt="Корзина" className="w-5 h-5 brightness-0 invert" />
+        <img src="/icon/cart.svg" alt="Корзина" className="w-5 h-5 brightness-0 invert" />
         {cartItems.length > 0 && (
           <div className={styles.user.cart.counter}>
             {cartItems.length}

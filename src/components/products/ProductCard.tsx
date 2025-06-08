@@ -1,4 +1,6 @@
 import Image from "next/image";
+import styles from './CardComponent.module.css';
+import React from 'react';
 
 type Product = {
   id: number;
@@ -9,48 +11,41 @@ type Product = {
 
 export default function ProductCard({ Product }: { Product: Product }) {
   return (
-   
-  <div className="flex flex-col bg-black rounded-3xl overflow-hidden">
-      {/* Картинка от Next.js */}
-      <div className="relative w-full h-full">
-        <Image
-          src="/images/1.jpg" // замени на актуальный путь
-          alt="Corporate"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
-
-      <div className="px-6 py-8 sm:p-10 sm:pb-6">
-        <div className="grid items-center justify-center w-full grid-cols-1 text-left">
-          <div>
-            <h2 className="text-lg font-medium tracking-tighter text-white lg:text-3xl">
-              Corporate
-            </h2>
-            <p className="mt-2 text-sm text-gray-100">Grow steadily and pizza.</p>
+    <div className={styles.card}>
+      <div className={styles.cardImage}>
+        {Product.imageUrl ? (
+          <Image
+            src={Product.imageUrl}
+            alt={Product.name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className={styles.image}
+            priority
+          />
+        ) : (
+          <div className={styles.noImage}>
+            Зображення відсутнє
           </div>
-          <div className="mt-6">
-            <p>
-              <span className="text-5xl font-light tracking-tight text-white">
-                $35
-              </span>
-              <span className="text-base font-medium text-white"> /mo </span>
-            </p>
-          </div>
-        </div>
+        )}
       </div>
-
-      <div className="flex px-6 pb-8 sm:px-8">
-        <a
-          aria-describedby="tier-starter"
-          className="items-center justify-center w-full px-6 py-2.5 text-center text-black duration-200 bg-white border-2 border-white rounded-full inline-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-white text-sm focus-visible:ring-white"
-          href="#"
-        >
-          Get started
-        </a>
+      <div className={styles.cardContent}>
+        <h3 className={styles.productName}>{Product.name}</h3>
+        <div className={styles.price}>{Product.price.toFixed(2)} ₴</div>
+        <button className={styles.addToCartButton}>
+          Додати в кошик
+        </button>
       </div>
     </div>
-
   );
 }
+
+// Container component for the cards grid
+export function ProductCardsGrid({ children }: { children: React.ReactNode }) {
+  return (
+    <div className={styles.cardsContainer}>
+      {children}
+    </div>
+  );
+}
+
+
