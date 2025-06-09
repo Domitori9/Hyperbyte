@@ -1,4 +1,4 @@
-import ProductCard from "@/components/products/ProductCard";
+// import ProductCard from "@/components/products/ProductCard";
 import KeyboardFilters from "@/components/filters/KeyboardFilters";
 import HeadphonesFilters from "@/components/filters/HeadphonesFilters";
 import MouseFilters from "@/components/filters/MouseFilters";
@@ -89,9 +89,9 @@ export default async function ProductCategoryPage({ params }: { params: { slug: 
       </div>
       <div className={styles.productsMain}>
         <div className={styles.productsGrid}>
-          {products.map((product) => (
+          {/* {products.map((product) => (
             <ProductCard key={product.id} Product={product} />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>

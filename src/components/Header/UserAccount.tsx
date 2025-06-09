@@ -1,5 +1,5 @@
-import React from 'react';
-
+import Link from 'next/link';
+import React, { Component } from 'react';
 interface UserAccountProps {
   username: string;
   avatarUrl?: string;
@@ -8,6 +8,7 @@ interface UserAccountProps {
  
 export default function UserAccount({ username, avatarUrl }: UserAccountProps) {
   return (
+    <Link href="/profile" >
     <div className="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-gray-500/40 transition-colors duration-200 cursor-pointer">
       <div className="relative">
         <div className="w-10 h-10 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600">
@@ -30,6 +31,7 @@ export default function UserAccount({ username, avatarUrl }: UserAccountProps) {
         <span className="text-sm text-gray-500">💸</span>
       </div>
     </div>
+    </Link>
   );
 }
 

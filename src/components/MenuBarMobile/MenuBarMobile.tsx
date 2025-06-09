@@ -9,9 +9,9 @@ export default function MenuBarMobile() {
 
     return (
         <>
-            <nav className="fixed bottom-0 left-0 right-0 flex justify-between items-center
-            bg-gray-800/50 backdrop-blur-md
-            z-50 h-18 min-[1023px]:hidden px-6 w-full">
+            <nav className="fixed bottom-5 left-3 right-3 rounded-full flex justify-between items-center
+            bg-white/10 backdrop-blur-md
+            z-50 h-18 min-[1023px]:hidden px-6 w-auto">
                 
                 <Link href="/" className="flex flex-col p-3 items-center justify-center text-sm hover:bg-white/30 rounded-xl transition-colors">
                   <Image src="/icon/home.svg" alt="home" width={24} height={24} className="brightness-0 invert" />

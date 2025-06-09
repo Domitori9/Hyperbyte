@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 
 export default function AvatarUploader() {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [avatar, setAvatar] = useState('/profile/avatarka.png'); // путь по умолчанию
+  const [avatar, setAvatar] = useState('/ava.jpg'); // путь по умолчанию
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

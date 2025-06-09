@@ -1,9 +1,9 @@
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Slider from "@/components/ui/Slider";
-import PopularProducts from "@/components/products/PopularProducts";
-import NewProducts from "@/components/products/NewProducts";
-import ComingSoonProducts from "@/components/products/ComingSoonProducts";
+// import PopularProducts from "@/components/products/PopularProducts";
+// import NewProducts from "@/components/products/NewProducts";
+// import ComingSoonProducts from "@/components/products/ComingSoonProducts";
 
 export const metadata = {
   title: 'HyperByte | Главная',
@@ -49,17 +49,17 @@ export default function Home() {
 
         {/* New Products */}
         <section>
-          <NewProducts />
+          {/* <NewProducts /> */}
         </section>
 
         {/* Popular Products */}
         <section >
-          <PopularProducts />
+          {/* <PopularProducts /> */}
         </section>
 
         {/* Coming Soon Products */}
         <section >
-          <ComingSoonProducts />
+          {/* <ComingSoonProducts /> */}
         </section>
 
         {/* Contacts Section */}

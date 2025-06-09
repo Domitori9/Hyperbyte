@@ -11,7 +11,7 @@ export default function TrashPage() {
                 <div className="bg-[#1e293b]/80 p-8 rounded-2xl shadow-lg border border-[#1e3a8a] text-center">
                     <div className="w-20 h-20 bg-blue-900/40 rounded-xl flex items-center justify-center mx-auto mb-6">
                         <Image 
-                            src="/icon/trash.svg" 
+                            src="/icon/cart.svg" 
                             alt="cart" 
                             width={40} 
                             height={40} 
