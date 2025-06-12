@@ -1,9 +1,10 @@
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Slider from "@/components/ui/Slider";
-// import PopularProducts from "@/components/products/PopularProducts";
-// import NewProducts from "@/components/products/NewProducts";
+import NewProducts from "@/components/products/NewProducts";
+import PopularProducts from "@/components/products/PopularProducts";
 // import ComingSoonProducts from "@/components/products/ComingSoonProducts";
+import styles from "./styles/FeatureSection.module.css";
 
 export const metadata = {
   title: 'HyperByte | Главная',
@@ -21,6 +22,17 @@ export default function Home() {
 
       {/* Main Content */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8">
+       
+
+         {/* New Products */}
+        <section>
+          <NewProducts />
+        </section>
+
+        {/* Popular Products */}
+        <section>
+          <PopularProducts />
+        </section>
         {/* Welcome Section */}
         <section className="py-12 sm:py-16">
           <div className="max-w-2xl mx-auto text-center">
@@ -44,18 +56,27 @@ export default function Home() {
                 Смотреть категории
               </a> */}
             </div>
+
+            
+          </div>
+           {/* Feature Section (Tailwind) */}
+        <section className="flex mt-30 flex-wrap justify-center gap-8 my-8">
+          <div className="bg-slate-800 text-white rounded-2xl p-8 min-w-[220px] max-w-xs flex-1 shadow hover:shadow-lg border border-slate-700 hover:border-sky-400 transition-all text-center">
+            <div className="text-xl font-semibold mb-2 text-sky-400">Бесплатная доставка</div>
+            <div className="text-base text-slate-200">Доставим ваш заказ бесплатно по всей стране при покупке от 2000₴.</div>
+          </div>
+          <div className="bg-slate-800 text-white rounded-2xl p-8 min-w-[220px] max-w-xs flex-1 shadow hover:shadow-lg border border-slate-700 hover:border-sky-400 transition-all text-center">
+            <div className="text-xl font-semibold mb-2 text-sky-400">Гарантия обмена и возврата</div>
+            <div className="text-base text-slate-200">Обмен или возврат товара в течение 14 дней без лишних вопросов.</div>
+          </div>
+          <div className="bg-slate-800 text-white rounded-2xl p-8 min-w-[220px] max-w-xs flex-1 shadow hover:shadow-lg border border-slate-700 hover:border-sky-400 transition-all text-center">
+            <div className="text-xl font-semibold mb-2 text-sky-400">Официальная лицензия</div>
+            <div className="text-base text-slate-200">Вся продукция сертифицирована и имеет официальную лицензию.</div>
           </div>
         </section>
-
-        {/* New Products */}
-        <section>
-          {/* <NewProducts /> */}
         </section>
 
-        {/* Popular Products */}
-        <section >
-          {/* <PopularProducts /> */}
-        </section>
+       
 
         {/* Coming Soon Products */}
         <section >
