@@ -10,8 +10,8 @@ interface CategoriesMenuProps {
 const categories = [
     { id: 1, name: 'ПК', href: '/products/pc' },
     { id: 2, name: 'Мышки', href: '/products/mouse' },
-    { id: 3, name: 'Клавиатура', href: '/products/keyboards' },
-    { id: 4, name: 'Монитор', href: '/products/monitor' },
+    { id: 3, name: 'Клавиатуры', href: '/products/keyboards' },
+    { id: 4, name: 'Мониторы', href: '/products/monitors' },
     { id: 5, name: 'Наушники', href: '/products/headphones' },
     { id: 6, name: 'Коврики', href: '/products/pad' },
     { id: 7, name: 'Ноутбуки', href: '/products/laptop' },

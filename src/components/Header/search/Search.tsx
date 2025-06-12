@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import styles from './Search.module.scss';
 
 export default function Search() {
     const phrases = [
@@ -40,16 +41,16 @@ export default function Search() {
     }, [currentPhrase, currentPhraseIndex, isDeleting, phrases]);
 
     return (
-        <form role="search" aria-label="Поиск по сайту" className="w-full relative">
+        <form role="search" aria-label="Поиск по сайту" className={styles.searchForm}>
             <input
-                className="w-full rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition border-gray-300 bg-gray-600 pl-10 pr-4 py-2 text-white placeholder-white"
+                className={styles.searchInput}
                 type="search"
                 name="q"
                 placeholder={currentPhrase}
                 aria-label="Поиск"
                 autoComplete="off"
             />
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-blue-400">
+            <span className={styles.searchIcon}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
                 </svg>

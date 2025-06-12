@@ -1,0 +1,61 @@
+.menuBarMobile {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  height: 4rem;
+  padding: 0 1rem;
+  width: auto;
+
+  @media (min-width: 1023px) {
+    display: none;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    border-radius: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 1);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__icon {
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+
+    .menuBarMobile__link:hover & {
+      opacity: 1;
+    }
+  }
+
+  &__text {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+} 
