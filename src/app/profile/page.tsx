@@ -4,7 +4,7 @@ import { useState } from "react";
 
 // Пример текущих данных пользователя (замените на реальные данные из вашего источника)
 const mockUser = {
-    name: "Дмитрий Дегтярь",
+    name: "Дмитро Дегтяр",
     email: "domitori@gmail.com",
 };
 
@@ -18,7 +18,7 @@ export default function UserProfile() {
 
     const handleSave = (e: React.FormEvent) => {
         e.preventDefault();
-        setMessage("Изменения сохранены!");
+        setMessage("Зміни збережено!");
     };
 
     return (
@@ -27,14 +27,14 @@ export default function UserProfile() {
                 {/* Декоративные элементы */}
                 <div className="absolute -top-10 -left-10 w-40 h-40 bg-sky-400/20 rounded-full blur-2xl z-0" />
                 <div className="absolute bottom-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl z-0" />
-                <h1 className="text-4xl font-extrabold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 drop-shadow-xl tracking-wide uppercase z-10 relative">Профиль</h1>
+                <h1 className="text-4xl font-extrabold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 drop-shadow-xl tracking-wide uppercase z-10 relative">Профіль</h1>
                 <div className="flex flex-col md:flex-row gap-12 items-start z-10 relative">
                     <div className="flex flex-col items-center md:items-start gap-6 md:w-1/3 w-full">
                         <div className="rounded-full border-4 border-sky-400/40 shadow-xl p-2 bg-gray-900/80">
                             <AvatarUploader />
                         </div>
-                        <div className="text-lg mb-2 text-sky-200 font-semibold">Текущая информация:</div>
-                        <div className="text-sky-100">Имя: <span className="font-bold">{mockUser.name}</span></div>
+                        <div className="text-lg mb-2 text-sky-200 font-semibold">Поточна інформація:</div>
+                        <div className="text-sky-100">Ім'я: <span className="font-bold">{mockUser.name}</span></div>
                         <div className="text-sky-100">Email: <span className="font-bold">{mockUser.email}</span></div>
                     </div>
                     <div className="flex-1 flex flex-col gap-8">
@@ -44,7 +44,7 @@ export default function UserProfile() {
                                 className={`px-7 py-3 rounded-2xl font-bold text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 ${activeTab === 'info' ? 'bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500 shadow-lg' : 'bg-gray-800/80 text-sky-200 hover:bg-gray-700/80'}`}
                                 onClick={() => setActiveTab('info')}
                             >
-                                Личная информация
+                                Особиста інформація
                             </button>
                             <button
                                 type="button"
@@ -57,9 +57,9 @@ export default function UserProfile() {
                         <form onSubmit={handleSave} className="w-full">
                             {activeTab === 'info' && (
                                 <div className="bg-gray-900/80 p-8 rounded-2xl shadow-xl border border-sky-900/30 animate-fade-in">
-                                    <h2 className="text-2xl font-bold mb-6 text-sky-300">Личная информация</h2>
+                                    <h2 className="text-2xl font-bold mb-6 text-sky-300">Особиста інформація</h2>
                                     <div className="mb-6">
-                                        <label htmlFor="name" className="block text-base font-semibold text-sky-200 mb-2">Имя</label>
+                                        <label htmlFor="name" className="block text-base font-semibold text-sky-200 mb-2">Ім'я</label>
                                         <input
                                             type="text"
                                             id="name"
@@ -82,9 +82,9 @@ export default function UserProfile() {
                             )}
                             {activeTab === 'password' && (
                                 <div className="bg-gray-900/80 p-8 rounded-2xl shadow-xl border border-sky-900/30 animate-fade-in">
-                                    <h2 className="text-2xl font-bold mb-6 text-sky-300">Изменить пароль</h2>
+                                    <h2 className="text-2xl font-bold mb-6 text-sky-300">Змінити пароль</h2>
                                     <div className="mb-6">
-                                        <label htmlFor="current-password" className="block text-base font-semibold text-sky-200 mb-2">Текущий пароль</label>
+                                        <label htmlFor="current-password" className="block text-base font-semibold text-sky-200 mb-2">Поточний пароль</label>
                                         <input
                                             type="password"
                                             id="current-password"
@@ -94,7 +94,7 @@ export default function UserProfile() {
                                         />
                                     </div>
                                     <div className="mb-6">
-                                        <label htmlFor="new-password" className="block text-base font-semibold text-sky-200 mb-2">Новый пароль</label>
+                                        <label htmlFor="new-password" className="block text-base font-semibold text-sky-200 mb-2">Новий пароль</label>
                                         <input
                                             type="password"
                                             id="new-password"
@@ -110,35 +110,35 @@ export default function UserProfile() {
                                     type="submit"
                                     className="px-10 py-3 rounded-2xl bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500 text-white font-bold text-lg shadow-lg hover:from-cyan-400 hover:to-sky-500 transition-all duration-200 focus:ring-2 focus:ring-sky-400 focus:outline-none"
                                 >
-                                    Сохранить изменения
+                                    Зберегти зміни
                                 </button>
                             </div>
                             {message && (
                                 <div className="mt-8 flex justify-center">
                                     <div className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900/80 border border-green-400 text-green-300 font-semibold text-lg shadow animate-fade-in">
                                         <svg className="inline-block" width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#22c55e"/><path d="M7 13l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                                        <span>Изменения сохранены</span>
+                                        <span>Зміни збережено</span>
                                     </div>
                                 </div>
                             )}
                         </form>
                     </div>
                 </div>
-                {/* Мои заказы */}
+                {/* Мої замовлення */}
                 <div className="w-full mt-14 z-10 relative">
-                    <h2 className="text-2xl font-bold mb-6 text-sky-300">Мои заказы</h2>
+                    <h2 className="text-2xl font-bold mb-6 text-sky-300">Мої замовлення</h2>
                     <div className="overflow-x-auto rounded-2xl shadow-xl border border-sky-900/30 bg-gray-900/80">
                         <table className="min-w-full text-sky-100">
                             <thead>
                                 <tr>
-                                    <th className="py-3 px-6 border-b border-sky-900/30">ID Заказа</th>
+                                    <th className="py-3 px-6 border-b border-sky-900/30">ID Замовлення</th>
                                     <th className="py-3 px-6 border-b border-sky-900/30">Дата</th>
                                     <th className="py-3 px-6 border-b border-sky-900/30">Статус</th>
-                                    <th className="py-3 px-6 border-b border-sky-900/30">Сумма</th>
+                                    <th className="py-3 px-6 border-b border-sky-900/30">Сума</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* Здесь вы можете отобразить список заказов */}
+                                {/* Тут ви можете відобразити список замовлень */}
                             </tbody>
                         </table>
                     </div>

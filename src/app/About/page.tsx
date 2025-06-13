@@ -6,10 +6,10 @@ export default function AboutPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h1 className="text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl drop-shadow-lg">
-                        О компании HyperByte
+                        Про компанію HyperByte
                     </h1>
                     <p className="mt-5 max-w-xl mx-auto text-xl text-gray-300">
-                        Ваш надежный партнер в мире компьютерной техники и аксессуаров
+                        Ваш надійний партнер у світі комп'ютерної техніки та аксесуарів
                     </p>
                 </div>
 
@@ -24,16 +24,15 @@ export default function AboutPage() {
                         />
                     </div>
                     <div className="space-y-6 items-center text-center lg:text-left">
-                        <h2 className="text-3xl font-bold text-white">Наша история</h2>
+                        <h2 className="text-3xl font-bold text-white">Наша історія</h2>
                         <p className="text-lg text-gray-300">
-                            HyperByte - это современный интернет-магазин компьютерной техники и аксессуаров, 
-                            основанный в 2025 году. Мы стремимся предоставить нашим клиентам лучшие 
-                            продукты по доступным ценам, сопровождая их покупку профессиональной 
-                            консультацией и качественным сервисом.
+                            HyperByte — це сучасний інтернет-магазин комп'ютерної техніки та аксесуарів,
+                            заснований у 2025 році. Ми прагнемо надавати нашим клієнтам найкращі продукти за доступними цінами,
+                            супроводжуючи їх покупку професійною консультацією та якісним сервісом.
                         </p>
                         <p className="text-lg text-gray-300">
-                            Наша команда состоит из опытных специалистов, которые помогут вам 
-                            выбрать именно то, что нужно, и ответят на все ваши вопросы.
+                            Наша команда складається з досвідчених спеціалістів, які допоможуть вам обрати саме те, що потрібно,
+                            і дадуть відповідь на всі ваші питання.
                         </p>
                     </div>
                 </div>
@@ -45,10 +44,10 @@ export default function AboutPage() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-4">Качество</h3>
+                        <h3 className="text-xl font-bold text-white mb-4">Якість</h3>
                         <p className="text-gray-300">
-                            Мы работаем только с проверенными производителями и гарантируем 
-                            качество каждого товара в нашем каталоге.
+                            Ми працюємо тільки з перевіреними виробниками і гарантуємо
+                            якість кожного товару в нашому каталозі.
                         </p>
                     </div>
                     <div className="bg-[#1e293b]/80 p-8 rounded-2xl shadow-lg border border-[#1e3a8a]">
@@ -57,10 +56,10 @@ export default function AboutPage() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-4">Скорость</h3>
+                        <h3 className="text-xl font-bold text-white mb-4">Швидкість</h3>
                         <p className="text-gray-300">
-                            Быстрая обработка заказов и доставка по всей Украине. 
-                            Мы ценим ваше время и стремимся к оперативности.
+                            Швидка обробка замовлень і доставка по всій Україні.
+                            Ми цінуємо ваш час і прагнемо до оперативності.
                         </p>
                     </div>
                     <div className="bg-[#1e293b]/80 p-8 rounded-2xl shadow-lg border border-[#1e3a8a]">
@@ -69,19 +68,19 @@ export default function AboutPage() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-4">Поддержка</h3>
+                        <h3 className="text-xl font-bold text-white mb-4">Підтримка</h3>
                         <p className="text-gray-300">
-                            Наша служба поддержки всегда готова помочь вам с любыми вопросами 
-                            и решить возникшие проблемы.
+                            Наша служба підтримки завжди готова допомогти вам з будь-якими питаннями
+                            і вирішити виниклі проблеми.
                         </p>
                     </div>
                 </div>
 
                 <div className="bg-[#1e293b]/80 rounded-2xl shadow-lg p-8 text-center border border-[#1e3a8a]">
-                    <h2 className="text-3xl font-bold text-white mb-6">Присоединяйтесь к нам</h2>
+                    <h2 className="text-3xl font-bold text-white mb-6">Приєднуйтесь до нас</h2>
                     <p className="text-lg text-gray-300 mb-8">
-                        Мы постоянно развиваемся и стремимся стать лучше для вас. 
-                        Следите за нашими новостями и акциями!
+                        Ми постійно розвиваємося і прагнемо стати кращими для вас.
+                        Слідкуйте за нашими новинами та акціями!
                     </p>
                     <div className="flex justify-center space-x-4">
                         <a href="#" className="text-gray-400 hover:text-blue-300 transition-colors">

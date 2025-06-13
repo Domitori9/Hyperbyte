@@ -19,7 +19,7 @@ export default function MenuBarMobile() {
                         height={24} 
                         className={styles.menuBarMobile__icon} 
                     />
-                    <span className={styles.menuBarMobile__text}>Главная</span>
+                    <span className={styles.menuBarMobile__text}>Головна</span>
                 </Link>
 
                 <button 
@@ -44,7 +44,7 @@ export default function MenuBarMobile() {
                         height={24} 
                         className={styles.menuBarMobile__icon} 
                     />
-                    <span className={styles.menuBarMobile__text}>Корзина</span>
+                    <span className={styles.menuBarMobile__text}>Кошик</span>
                 </Link>
 
                 <Link href="/" className={styles.menuBarMobile__link}>
@@ -55,7 +55,7 @@ export default function MenuBarMobile() {
                         height={24} 
                         className={styles.menuBarMobile__icon} 
                     />
-                    <span className={styles.menuBarMobile__text}>Аккаунт</span>
+                    <span className={styles.menuBarMobile__text}>Акаунт</span>
                 </Link>
             </nav>
 

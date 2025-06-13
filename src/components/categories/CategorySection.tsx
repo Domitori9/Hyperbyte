@@ -15,57 +15,57 @@ const categories: Category[] = [
   {
     id: "pc",
     name: "Системники",
-    image: "/pc.png",
-    path: "/products/pc",
-    description: "Мощные игровые и рабочие компьютеры для любых задач",
+    image: "/category/pc.jpg",
+    path: "/category/pc.jpg",
+    description: "Потужні ігрові та робочі комп'ютери для будь-яких задач",
     color: "#3B82F6"
   },
   {
     id: "mouse",
-    name: "Мышки",
+    name: "Миші",
     image: "/category/mouse.png",
     path: "/products/mouse",
-    description: "Точные и отзывчивые мыши для геймеров и профессионалов",
+    description: "Точні та чутливі миші для геймерів і професіоналів",
     color: "#10B981"
   },
   {
     id: "keyboards",
-    name: "Клавиатуры",
-    image: "/keyboard.png",
-    path: "/products/keyboards",
-    description: "Механические и мембранные клавиатуры для каждого",
+    name: "Клавіатури",
+    image: "/category/keyboard.jpg",
+    path: "/products/keyboard",
+    description: "Механічні та мембранні клавіатури для кожного",
     color: "#8B5CF6"
   },
   {
     id: "monitors",
-    name: "Мониторы",
-    image: "/monitor.png",
-    path: "/products/monitors",
-    description: "Мониторы с идеальной цветопередачей и высокой частотой",
+    name: "Монітори",
+    image: "/category/monitor.jpg",
+    path: "/products/monitor",
+    description: "Монітори з ідеальною кольоропередачею та високою частотою",
     color: "#EC4899"
   },
   {
     id: "headphones",
-    name: "Наушники",
-    image: "/headphones.png",
+    name: "Навушники",
+    image: "/category/headphones.jpg",
     path: "/products/headphones",
-    description: "Игровые и музыкальные наушники с премиальным звуком",
+    description: "Ігрові та музичні навушники з преміальною якістю звуку",
     color: "#F59E0B"
   },
   {
     id: "pad",
-    name: "Коврики",
-    image: "/pad.png",
+    name: "Килимки",
+    image: "/category/pad.jpg",
     path: "/products/pad",
-    description: "Коврики для мыши с идеальным скольжением",
+    description: "Килимки для миші з ідеальним ковзанням",
     color: "#EF4444"
   },
   {
     id: "laptop",
     name: "Ноутбуки",
-    image: "/laptop.png",
+    image: "/category/laptop.jpg",
     path: "/products/laptop",
-    description: "Мощные игровые и рабочие ноутбуки",
+    description: "Потужні ігрові та робочі ноутбуки",
     color: "#14B8A6"
   }
 ];

@@ -13,14 +13,14 @@ type Category = {
 
 // Constants
 const CATEGORIES: Category[] = [
-  { name: 'Системники', href: '/products/pc' },
-  { name: 'Мыши', href: '/products/mouse' },
-  { name: 'Клавиатуры', href: '/products/keyboards' },
-  { name: 'Мониторы', href: '/products/monitors' },
-  { name: 'Наушники', href: '/products/headphones' },
-  { name: 'Коврики', href: '/products/pad' },
+  { name: 'Системні блоки', href: '/products/pc' },
+  { name: 'Миші', href: '/products/mouse' },
+  { name: 'Клавіатури', href: '/products/keyboard' },
+  { name: 'Монітори', href: '/products/monitor' },
+  { name: 'Навушники', href: '/products/headphones' },
+  { name: 'Килимки', href: '/products/pad' },
   { name: 'Ноутбуки', href: '/products/laptop' },
-  { name: 'О нас', href: '/about' },
+  { name: 'Про нас', href: '/about' },
 ];
 
 // Components
@@ -48,7 +48,7 @@ const CategoriesDropdown = memo(() => {
         aria-haspopup="true"
         aria-expanded={isOpen}
       >
-        <span>Категории</span>
+        <span>Категорії</span>
         <svg
           className={`${styles.categoriesIcon} ${isOpen ? styles.open : ''}`}
           fill="none"
@@ -64,7 +64,7 @@ const CategoriesDropdown = memo(() => {
           isOpen ? '' : styles.hidden
         }`}
         role="menu"
-        aria-label="Категории"
+        aria-label="Категорії"
       >
         {CATEGORIES.map((category) => (
           <Link
@@ -119,7 +119,7 @@ const MobileDrawer = memo(({ isOpen, onClose }: { isOpen: boolean; onClose: () =
       <button
         className={styles.mobileDrawerCloseButton}
         onClick={onClose}
-        aria-label="Закрыть меню"
+        aria-label="Закрити меню"
       >
         <svg className="w-6 h-6 text-blue-200" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
           <line x1="18" y1="6" x2="6" y2="18"/>
@@ -184,19 +184,18 @@ export default function Header() {
             </button>
             <div className={`${styles.userCartDropdown} ${isCartOpen ? '' : styles.hidden}`}>
               <div className={styles.userCartItems}>
-                {/* Здесь будет список товаров в корзине */}
                 <div className={styles.userCartEmpty}>
-                  Корзина пуста
+                  Кошик порожній
                 </div>
               </div>
               <div className={styles.userCartTotal}>
                 <div className={styles.userCartTotalText}>
-                  <span>Итого:</span>
-                  <span>0 ₽</span>
+                  <span>Разом:</span>
+                  <span>0 ₴</span>
                 </div>
               </div>
               <button className={styles.userCartButton}>
-                Оформить заказ
+                Оформити замовлення
               </button>
             </div>
           </div>

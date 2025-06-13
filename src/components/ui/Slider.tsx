@@ -11,17 +11,17 @@ const slides = [
   {
     image: '/images/1.jpg',
     title: 'Logitech G Pro X Superlight',
-    desc: 'Logitech G Pro X Superlight - беспроводная игровая мышь с ультралегким дизайном и высокой точностью.',
+    desc: 'Logitech G Pro X Superlight - бездротова ігрова миша з ультралегким дизайном та високою точністю.',
   },
   {
     image: '/images/2.jpg',
     title: 'Hator HURRICANE',
-    desc: 'Hator HURRICANE - игровая мышь с RGB подсветкой и высокой чувствительностью.',
+    desc: 'Hator HURRICANE - ігрова миша з RGB підсвіткою та високою чутливістю.',
   },
   {
     image: '/images/3.jpg',
     title: 'Razer Viper Ultimate',
-    desc: 'Razer Viper Ultimate - беспроводная игровая мышь с высокой точностью и скоростью отклика.',
+    desc: 'Razer Viper Ultimate - бездротова ігрова миша з високою точністю та швидкістю відгуку.',
   },
 ];
 

@@ -1,16 +1,17 @@
 // Common glass morphism mixin
 @mixin glass-morphism {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.25);
+  background: rgba(17, 24, 39, 0.95); // Darker background with higher opacity
+  /* Удалены блюры и лишняя прозрачность */
+  /* backdrop-filter: blur(10px); */
+  /* -webkit-backdrop-filter: blur(10px); */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 @mixin glass-hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.35);
+  background: rgba(30, 64, 175, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 @mixin glass-convex {
@@ -67,12 +68,12 @@
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: -0.025em;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: color 0.2s ease;
     
     &:hover {
-      color: #93c5fd;
+      color: #60a5fa; // Brighter blue on hover
     }
   }
 }
@@ -126,6 +127,7 @@
     @include glass-morphism;
     @include glass-convex;
     transition: all 0.2s ease;
+    color: #ffffff;
     
     @media (min-width: 1280px) {
       padding: 0.5rem 2rem;
@@ -133,13 +135,14 @@
     
     &:hover {
       @include glass-hover;
+      color: #60a5fa;
     }
   }
   
   &Icon {
     width: 1.25rem;
     height: 1.25rem;
-    color: #93c5fd;
+    color: #60a5fa; // Brighter blue for better visibility
     transition: transform 0.2s ease;
     
     &.open {
@@ -153,10 +156,10 @@
     top: 100%;
     margin-top: 0.5rem;
     min-width: 220px;
-    background: rgba(17, 24, 39, 0.95);
+    background: rgba(17, 24, 39, 0.98); // Higher opacity for dropdown
     border-radius: 1rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(30, 64, 175, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 0.5rem;
     transition: all 0.2s ease;
     z-index: 50;
@@ -176,7 +179,8 @@
     transition: all 0.2s ease;
     
     &:hover {
-      background: rgba(30, 64, 175, 0.4);
+      background: rgba(30, 64, 175, 0.5);
+      color: #ffffff;
     }
   }
 }
@@ -309,9 +313,11 @@
       @include glass-morphism;
       @include glass-convex;
       transition: all 0.2s ease;
+      color: #ffffff;
       
       &:hover {
         @include glass-hover;
+        color: #60a5fa;
       }
     }
     
@@ -328,9 +334,9 @@
       justify-content: center;
       font-size: 0.75rem;
       font-weight: 700;
-      color: white;
+      color: #ffffff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      border: 2px solid #111827;
+      border: 2px solid #1e293b;
     }
     
     &Dropdown {
@@ -339,10 +345,10 @@
       top: 100%;
       margin-top: 0.5rem;
       width: 20rem;
-      background: rgba(17, 24, 39, 0.95);
+      background: rgba(17, 24, 39, 0.98);
       border-radius: 1rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(30, 64, 175, 0.5);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       padding: 1rem;
       transition: all 0.2s ease;
       z-index: 50;
@@ -385,12 +391,12 @@
     &ItemName {
       font-size: 0.875rem;
       font-weight: 500;
-      color: white;
+      color: #ffffff;
     }
     
     &ItemPrice {
       font-size: 0.875rem;
-      color: #93c5fd;
+      color: #60a5fa;
     }
     
     &Total {
@@ -404,14 +410,14 @@
       justify-content: space-between;
       font-size: 0.875rem;
       font-weight: 500;
-      color: white;
+      color: #ffffff;
     }
     
     &Button {
       margin: 1rem 1.5rem;
       padding: 0.625rem 1rem;
-      background: linear-gradient(to right, #2563eb, #1d4ed8);
-      color: white;
+      background: linear-gradient(to right, #3b82f6, #2563eb);
+      color: #ffffff;
       border-radius: 0.75rem;
       font-size: 0.875rem;
       font-weight: 500;
@@ -422,8 +428,8 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       
       &:hover {
-        background: linear-gradient(to right, #1d4ed8, #1e40af);
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(to right, #2563eb, #1d4ed8);
+        color: #ffffff;
       }
     }
   }
@@ -461,9 +467,11 @@
   @include glass-morphism;
   @include glass-convex;
   transition: all 0.2s ease;
+  color: #ffffff;
   
   &:hover {
     @include glass-hover;
+    color: #60a5fa;
   }
 }
 
@@ -480,9 +488,9 @@
   justify-content: center;
   font-size: 0.75rem;
   font-weight: 700;
-  color: white;
+  color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 2px solid #111827;
+  border: 2px solid #1e293b;
 }
 
 .userCartDropdown {
@@ -491,10 +499,10 @@
   top: 100%;
   margin-top: 0.5rem;
   width: 20rem;
-  background: rgba(17, 24, 39, 0.95);
+  background: rgba(17, 24, 39, 0.98);
   border-radius: 1rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(30, 64, 175, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 1rem;
   transition: all 0.2s ease;
   z-index: 50;
@@ -545,12 +553,12 @@
 .userCartItemName {
   font-size: 0.875rem;
   font-weight: 500;
-  color: white;
+  color: #ffffff;
 }
 
 .userCartItemPrice {
   font-size: 0.875rem;
-  color: #93c5fd;
+  color: #60a5fa;
 }
 
 .userCartTotal {
@@ -564,14 +572,14 @@
   justify-content: space-between;
   font-size: 0.875rem;
   font-weight: 500;
-  color: white;
+  color: #ffffff;
 }
 
 .userCartButton {
   margin: 1rem 1.5rem;
   padding: 0.625rem 1rem;
-  background: linear-gradient(to right, #2563eb, #1d4ed8);
-  color: white;
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  color: #ffffff;
   border-radius: 0.75rem;
   font-size: 0.875rem;
   font-weight: 500;
@@ -582,7 +590,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   
   &:hover {
-    background: linear-gradient(to right, #1d4ed8, #1e40af);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to right, #2563eb, #1d4ed8);
+    color: #ffffff;
   }
-} 
+}

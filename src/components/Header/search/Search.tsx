@@ -5,12 +5,12 @@ import styles from './Search.module.scss';
 
 export default function Search() {
     const phrases = [
-        "Поиск...",
-        "Найти игровую мышь...",
-        "Найти клавиатуру...",
-        "Найти наушники...",
-        "Найти монитор...",
-        "Найти ноутбук..."
+        "Пошук...",
+        "Знайти ігрову мишу...",
+        "Знайти клавіатуру...",
+        "Знайти навушники...",
+        "Знайти монітор...",
+        "Знайти ноутбук..."
     ];
 
     const [currentPhrase, setCurrentPhrase] = useState('');
@@ -41,13 +41,13 @@ export default function Search() {
     }, [currentPhrase, currentPhraseIndex, isDeleting, phrases]);
 
     return (
-        <form role="search" aria-label="Поиск по сайту" className={styles.searchForm}>
+        <form role="search" aria-label="Пошук по сайту" className={styles.searchForm}>
             <input
                 className={styles.searchInput}
                 type="search"
                 name="q"
                 placeholder={currentPhrase}
-                aria-label="Поиск"
+                aria-label="Пошук"
                 autoComplete="off"
             />
             <span className={styles.searchIcon}>

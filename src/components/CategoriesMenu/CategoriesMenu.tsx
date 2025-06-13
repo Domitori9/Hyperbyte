@@ -9,11 +9,11 @@ interface CategoriesMenuProps {
 
 const categories = [
     { id: 1, name: 'ПК', href: '/products/pc' },
-    { id: 2, name: 'Мышки', href: '/products/mouse' },
-    { id: 3, name: 'Клавиатуры', href: '/products/keyboards' },
-    { id: 4, name: 'Мониторы', href: '/products/monitors' },
-    { id: 5, name: 'Наушники', href: '/products/headphones' },
-    { id: 6, name: 'Коврики', href: '/products/pad' },
+    { id: 2, name: 'Миші', href: '/products/mouse' },
+    { id: 3, name: 'Клавіатури', href: '/products/keyboards' },
+    { id: 4, name: 'Монітори', href: '/products/monitors' },
+    { id: 5, name: 'Навушники', href: '/products/headphones' },
+    { id: 6, name: 'Килимки', href: '/products/pad' },
     { id: 7, name: 'Ноутбуки', href: '/products/laptop' },
 ];
 
@@ -24,7 +24,7 @@ export default function CategoriesMenu({ isOpen, onClose }: CategoriesMenuProps)
         <div className="fixed inset-0 bg-black/50 backdrop-blur-md z-50 flex items-center justify-center">
             <div className="bg-gray-800/80 backdrop-blur-md rounded-2xl p-6 w-[90%] max-w-md border border-gray-700/50">
                 <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-xl font-semibold text-white">Категории</h2>
+                    <h2 className="text-xl font-semibold text-white">Категорії</h2>
                     <button 
                         onClick={onClose}
                         className="text-gray-400 hover:text-white transition-colors"

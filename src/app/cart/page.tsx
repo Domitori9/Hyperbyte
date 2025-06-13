@@ -80,7 +80,7 @@ export default function CartPage() {
             <div className={styles.cartContainer}>
                 <div className={styles.cartContent}>
                     <div className={styles.emptyCart}>
-                        <p>Loading...</p>
+                        <p>Завантаження...</p>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@ export default function CartPage() {
         <div className={styles.cartContainer}>
             <div className={styles.cartContent}>
                 <div className={styles.cartHeader}>
-                    <h1>Корзина</h1>
+                    <h1>Кошик</h1>
                 </div>
 
                 {cartItems.length === 0 ? (
@@ -104,10 +104,10 @@ export default function CartPage() {
                                 height={40}
                             />
                         </div>
-                        <h2>Ваша корзина пуста</h2>
-                        <p>Добавьте товары в корзину, чтобы оформить заказ</p>
+                        <h2>Ваш кошик порожній</h2>
+                        <p>Додайте товари до кошика, щоб оформити замовлення</p>
                         <Link href="/" className={styles.continueShopping}>
-                            Перейти к покупкам
+                            Перейти до покупок
                         </Link>
                     </div>
                 ) : (
@@ -163,15 +163,15 @@ export default function CartPage() {
 
                         <div className={styles.cartSummary}>
                             <div className={styles.summaryRow}>
-                                <span>Подытог</span>
+                                <span>Проміжний підсумок</span>
                                 <span>{calculateTotal()} ₴</span>
                             </div>
                             <div className={styles.summaryRow}>
                                 <span>Доставка</span>
-                                <span>Бесплатно</span>
+                                <span>Безкоштовно</span>
                             </div>
                             <div className={styles.summaryRow}>
-                                <span>Итого</span>
+                                <span>Разом</span>
                                 <span>{calculateTotal()} ₴</span>
                             </div>
                             <button
@@ -181,7 +181,7 @@ export default function CartPage() {
                                     console.log('Proceeding to checkout...')
                                 }}
                             >
-                                Оформить заказ
+                                Оформити замовлення
                             </button>
                         </div>
                     </>
