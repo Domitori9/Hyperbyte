@@ -123,7 +123,7 @@
 .right {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 
   @media (max-width: 1022px) {
     display: none;
@@ -156,4 +156,20 @@
   border-radius: 9999px;
   min-width: 1.5rem;
   text-align: center;
+}
+
+.loginButton {
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0ea5e9, #38bdf8, #2563eb);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.15);
+
+  &:hover {
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9, #2563eb);
+    color: #e0f2fe;
+  }
 }

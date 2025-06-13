@@ -20,6 +20,8 @@ const menuItems = [
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const [user, setUser] = useState<{ username: string; avatarUrl?: string } | null>(null);
+    const [loading, setLoading] = useState(true);
 
     const handleClickOutside = useCallback((event: MouseEvent) => {
         if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -31,6 +33,29 @@ const Header = () => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, [handleClickOutside]);
+
+    useEffect(() => {
+        async function fetchProfile() {
+            setLoading(true);
+            try {
+                const res = await fetch('/api/auth/profile');
+                if (res.ok) {
+                    const data = await res.json();
+                    setUser({
+                        username: data.user?.user_metadata?.name || data.user?.email || 'Профіль',
+                        avatarUrl: data.user?.user_metadata?.avatar_url || undefined,
+                    });
+                } else {
+                    setUser(null);
+                }
+            } catch {
+                setUser(null);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchProfile();
+    }, []);
 
     return (
         <header className={styles.header}>
@@ -67,7 +92,11 @@ const Header = () => {
                 </div>
 
                 <div className={styles.right}>
-                    <UserAccount username="Користувач" />
+                    {loading ? null : user ? (
+                        <UserAccount username={user.username} avatarUrl={user.avatarUrl} />
+                    ) : (
+                        <Link href="/login" className={styles.loginButton}>Войти</Link>
+                    )}
                     <Link href="/cart" className={styles.cartButton}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <circle cx="8" cy="21" r="1"/>
