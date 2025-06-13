@@ -16,7 +16,7 @@ export default function Home() {
       <Header />
       
       {/* Hero Section */}
-      <section className="w-full">
+      <section className="w-full mt-42 ">
         <Slider />
       </section>
 
