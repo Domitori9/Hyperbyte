@@ -42,8 +42,8 @@ const Header = () => {
                 if (res.ok) {
                     const data = await res.json();
                     setUser({
-                        username: data.user?.user_metadata?.name || data.user?.email || 'Профіль',
-                        avatarUrl: data.user?.user_metadata?.avatar_url || undefined,
+                        username: data.profile?.name || data.user?.user_metadata?.name || data.user?.email || 'Профіль',
+                        avatarUrl: data.profile?.avatar_url || data.user?.user_metadata?.avatar_url || undefined,
                     });
                 } else {
                     setUser(null);

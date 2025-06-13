@@ -1,6 +1,8 @@
 "use client";
 import AvatarUploader from "@/components/profile/AvatarUploader";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import styles from "./ProfilePage.module.scss";
 
 export default function UserProfile() {
     const [name, setName] = useState("");
@@ -11,35 +13,123 @@ export default function UserProfile() {
     const [error, setError] = useState("");
     const [activeTab, setActiveTab] = useState<'info' | 'password'>('info');
     const [loading, setLoading] = useState(true);
+    const [avatarUrl, setAvatarUrl] = useState("");
+    const [profile, setProfile] = useState<{ name: string; avatar_url: string } | null>(null);
+    const avatarInputRef = useRef<HTMLInputElement>(null);
+    const router = useRouter();
+
+    async function fetchProfile() {
+        setLoading(true);
+        setError("");
+        try {
+            const res = await fetch("/api/auth/profile");
+            const data = await res.json();
+            if (!res.ok) {
+                setError(data.error || "Не вдалося отримати профіль");
+            } else {
+                setName(data.profile?.name || "");
+                setEmail(data.user?.email || "");
+                setAvatarUrl(data.profile?.avatar_url || "");
+                setProfile(data.profile);
+            }
+        } catch {
+            setError("Помилка мережі");
+        } finally {
+            setLoading(false);
+        }
+    }
 
     useEffect(() => {
-        async function fetchProfile() {
-            setLoading(true);
-            setError("");
-            try {
-                const res = await fetch("/api/auth/profile");
-                const data = await res.json();
-                if (!res.ok) {
-                    setError(data.error || "Не вдалося отримати профіль");
-                } else {
-                    setName(data.user?.user_metadata?.name || "");
-                    setEmail(data.user?.email || "");
-                }
-            } catch {
-                setError("Помилка мережі");
-            } finally {
-                setLoading(false);
-            }
-        }
         fetchProfile();
     }, []);
+
+    const handleAvatarChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        // Можно реализовать загрузку на Supabase Storage, а пока просто превью
+        const reader = new FileReader();
+        reader.onload = () => setAvatarUrl(reader.result as string);
+        reader.readAsDataURL(file);
+    };
 
     const handleSave = async (e: React.FormEvent) => {
         e.preventDefault();
         setMessage("");
         setError("");
-        // Здесь можно реализовать обновление профиля через отдельный backend-роут
-        setMessage("Зміни збережено!");
+        try {
+            const res = await fetch("/api/auth/profile", {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    avatar_url: avatarUrl,
+                    currentPassword,
+                    newPassword,
+                }),
+            });
+            const data = await res.json();
+            if (!res.ok) {
+                let errorMsg = data.error || "Помилка оновлення профілю";
+                // Переводим типовые ошибки на украинский
+                if (errorMsg.includes("Current password is incorrect")) {
+                    errorMsg = "Поточний пароль невірний.";
+                } else if (errorMsg.includes("New password should be different from the old password")) {
+                    errorMsg = "Новий пароль має відрізнятися від старого.";
+                } else if (errorMsg.includes("password") && errorMsg.includes("6 characters")) {
+                    errorMsg = "Пароль має містити щонайменше 6 символів.";
+                } else if (errorMsg.includes("email")) {
+                    errorMsg = "Некоректний email або такий email вже зареєстровано.";
+                } else if (errorMsg.toLowerCase().includes("network")) {
+                    errorMsg = "Помилка мережі. Спробуйте ще раз.";
+                } else if (errorMsg.toLowerCase().includes("invalid login credentials")) {
+                    errorMsg = "Невірний email або пароль.";
+                } else if (errorMsg.toLowerCase().includes("auth session missing")) {
+                    errorMsg = "Пароль змінено. Будь ласка, увійдіть знову.";
+                }
+                setError(errorMsg);
+                // Если пароль успешно изменён, разлогиниваем пользователя
+                if (data.error && data.error.toLowerCase().includes("auth session missing")) {
+                    setTimeout(() => {
+                        router.push("/login");
+                    }, 1500);
+                }
+            } else {
+                // Если был запрос на смену пароля, разлогиниваем пользователя
+                if (currentPassword && newPassword) {
+                    setMessage("Пароль змінено. Будь ласка, увійдіть знову.");
+                    setTimeout(() => {
+                        router.push("/login");
+                    }, 1500);
+                    return;
+                }
+                setMessage("Зміни збережено!");
+                setCurrentPassword("");
+                setNewPassword("");
+                await fetchProfile(); // <-- обновляем профиль после сохранения
+            }
+        } catch {
+            setError("Помилка мережі");
+        }
+    };
+
+    const handleLogout = async () => {
+        setError("");
+        setMessage("");
+        try {
+            const res = await fetch("/api/auth/logout", { method: "POST" });
+            if (res.ok) {
+                setMessage("Ви вийшли з акаунту");
+                setTimeout(() => {
+                    router.push("/login");
+                }, 1000);
+            } else {
+                const data = await res.json();
+                setError(data.error || "Помилка виходу");
+            }
+        } catch {
+            setError("Помилка мережі");
+        }
     };
 
     if (loading) {
@@ -47,135 +137,99 @@ export default function UserProfile() {
     }
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center py-12 animate-fade-in">
-            <div className="w-full max-w-5xl p-10 rounded-[2.5rem] shadow-2xl bg-white/5 backdrop-blur-xl border border-sky-900/40 animate-slide-up relative overflow-hidden">
-                {/* Декоративные элементы */}
-                <div className="absolute -top-10 -left-10 w-40 h-40 bg-sky-400/20 rounded-full blur-2xl z-0" />
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl z-0" />
-                <h1 className="text-4xl font-extrabold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-500 drop-shadow-xl tracking-wide uppercase z-10 relative">Профіль</h1>
-                <div className="flex flex-col md:flex-row gap-12 items-start z-10 relative">
-                    <div className="flex flex-col items-center md:items-start gap-6 md:w-1/3 w-full">
-                        <div className="rounded-full border-4 border-sky-400/40 shadow-xl p-2 bg-gray-900/80">
-                            <AvatarUploader />
-                        </div>
-                        <div className="text-lg mb-2 text-sky-200 font-semibold">Поточна інформація:</div>
-                        <div className="text-sky-100">Ім'я: <span className="font-bold">{name}</span></div>
-                        <div className="text-sky-100">Email: <span className="font-bold">{email}</span></div>
+        <div className={styles.profileContainer + ' ' + styles.animateFadeIn}>
+            <div className={styles.profileCard + ' ' + styles.animateSlideUp}>
+                <div className={styles.profileHeader}>
+                    <div className={styles.avatarEditWrapper}>
+                        <img
+                            src={avatarUrl || "/ava.jpg"}
+                            alt="Аватар"
+                            className={styles.profileAvatar}
+                        />
+                        <button
+                            type="button"
+                            onClick={() => avatarInputRef.current?.click()}
+                            className={styles.avatarEditButton}
+                            title="Змінити аватар"
+                        >
+                            ✎
+                        </button>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            ref={avatarInputRef}
+                            onChange={handleAvatarChange}
+                            className={styles.avatarEditInput}
+                        />
                     </div>
-                    <div className="flex-1 flex flex-col gap-8">
-                        <div className="flex gap-4 mb-4">
-                            <button
-                                type="button"
-                                className={`px-7 py-3 rounded-2xl font-bold text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 ${activeTab === 'info' ? 'bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500 shadow-lg' : 'bg-gray-800/80 text-sky-200 hover:bg-gray-700/80'}`}
-                                onClick={() => setActiveTab('info')}
-                            >
-                                Особиста інформація
-                            </button>
-                            <button
-                                type="button"
-                                className={`px-7 py-3 rounded-2xl font-bold text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 ${activeTab === 'password' ? 'bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500 shadow-lg' : 'bg-gray-800/80 text-sky-200 hover:bg-gray-700/80'}`}
-                                onClick={() => setActiveTab('password')}
-                            >
-                                Пароль
-                            </button>
-                        </div>
-                        <form onSubmit={handleSave} className="w-full">
-                            {activeTab === 'info' && (
-                                <div className="bg-gray-900/80 p-8 rounded-2xl shadow-xl border border-sky-900/30 animate-fade-in">
-                                    <h2 className="text-2xl font-bold mb-6 text-sky-300">Особиста інформація</h2>
-                                    <div className="mb-6">
-                                        <label htmlFor="name" className="block text-base font-semibold text-sky-200 mb-2">Ім'я</label>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            value={name}
-                                            onChange={e => setName(e.target.value)}
-                                            className="w-full px-5 py-3 rounded-xl bg-gray-800 border border-sky-900 text-sky-100 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition placeholder-gray-500 shadow-sm text-lg"
-                                        />
-                                    </div>
-                                    <div className="mb-6">
-                                        <label htmlFor="email" className="block text-base font-semibold text-sky-200 mb-2">Email</label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            value={email}
-                                            onChange={e => setEmail(e.target.value)}
-                                            className="w-full px-5 py-3 rounded-xl bg-gray-800 border border-sky-900 text-sky-100 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition placeholder-gray-500 shadow-sm text-lg"
-                                        />
-                                    </div>
-                                </div>
-                            )}
-                            {activeTab === 'password' && (
-                                <div className="bg-gray-900/80 p-8 rounded-2xl shadow-xl border border-sky-900/30 animate-fade-in">
-                                    <h2 className="text-2xl font-bold mb-6 text-sky-300">Змінити пароль</h2>
-                                    <div className="mb-6">
-                                        <label htmlFor="current-password" className="block text-base font-semibold text-sky-200 mb-2">Поточний пароль</label>
-                                        <input
-                                            type="password"
-                                            id="current-password"
-                                            value={currentPassword}
-                                            onChange={e => setCurrentPassword(e.target.value)}
-                                            className="w-full px-5 py-3 rounded-xl bg-gray-800 border border-sky-900 text-sky-100 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition placeholder-gray-500 shadow-sm text-lg"
-                                        />
-                                    </div>
-                                    <div className="mb-6">
-                                        <label htmlFor="new-password" className="block text-base font-semibold text-sky-200 mb-2">Новий пароль</label>
-                                        <input
-                                            type="password"
-                                            id="new-password"
-                                            value={newPassword}
-                                            onChange={e => setNewPassword(e.target.value)}
-                                            className="w-full px-5 py-3 rounded-xl bg-gray-800 border border-sky-900 text-sky-100 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition placeholder-gray-500 shadow-sm text-lg"
-                                        />
-                                    </div>
-                                </div>
-                            )}
-                            <div className="flex justify-center mt-6">
-                                <button
-                                    type="submit"
-                                    className="px-10 py-3 rounded-2xl bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500 text-white font-bold text-lg shadow-lg hover:from-cyan-400 hover:to-sky-500 transition-all duration-200 focus:ring-2 focus:ring-sky-400 focus:outline-none"
-                                >
-                                    Зберегти зміни
-                                </button>
-                            </div>
-                            {message && (
-                                <div className="mt-8 flex justify-center">
-                                    <div className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900/80 border border-green-400 text-green-300 font-semibold text-lg shadow animate-fade-in">
-                                        <svg className="inline-block" width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#22c55e"/><path d="M7 13l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                                        <span>{message}</span>
-                                    </div>
-                                </div>
-                            )}
-                            {error && (
-                                <div className="mt-8 flex justify-center">
-                                    <div className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900/80 border border-red-400 text-red-300 font-semibold text-lg shadow animate-fade-in">
-                                        <svg className="inline-block" width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#ef4444"/><path d="M7 13l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                                        <span>{error}</span>
-                                    </div>
-                                </div>
-                            )}
-                        </form>
+                    <div className={styles.profileInfo}>
+                        <div className={styles.profileName}>{profile?.name || name}</div>
+                        <div className={styles.profileEmail}>{email}</div>
                     </div>
                 </div>
-                {/* Мої замовлення */}
-                <div className="w-full mt-14 z-10 relative">
-                    <h2 className="text-2xl font-bold mb-6 text-sky-300">Мої замовлення</h2>
-                    <div className="overflow-x-auto rounded-2xl shadow-xl border border-sky-900/30 bg-gray-900/80">
-                        <table className="min-w-full text-sky-100">
-                            <thead>
-                                <tr>
-                                    <th className="py-3 px-6 border-b border-sky-900/30">ID Замовлення</th>
-                                    <th className="py-3 px-6 border-b border-sky-900/30">Дата</th>
-                                    <th className="py-3 px-6 border-b border-sky-900/30">Статус</th>
-                                    <th className="py-3 px-6 border-b border-sky-900/30">Сума</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {/* Тут ви можете відобразити список замовлень */}
-                            </tbody>
-                        </table>
-                    </div>
+                <div className={styles.profileTabs}>
+                    <button
+                        type="button"
+                        className={activeTab === 'info' ? `${styles.profileTab} ${styles.profileTabActive}` : styles.profileTab}
+                        onClick={() => setActiveTab('info')}
+                    >
+                        Особиста інформація
+                    </button>
+                    <button
+                        type="button"
+                        className={activeTab === 'password' ? `${styles.profileTab} ${styles.profileTabActive}` : styles.profileTab}
+                        onClick={() => setActiveTab('password')}
+                    >
+                        Пароль
+                    </button>
                 </div>
+                <form onSubmit={handleSave} className={styles.profileForm}>
+                    {activeTab === 'info' && (
+                        <>
+                            <label htmlFor="name" className={styles.profileLabel}>Ім'я</label>
+                            <input
+                                type="text"
+                                id="name"
+                                value={name}
+                                onChange={e => setName(e.target.value)}
+                                className={styles.profileInput}
+                            />
+                            <label htmlFor="email" className={styles.profileLabel}>Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
+                                className={styles.profileInput}
+                            />
+                            {/* Кнопка смены аватарки теперь только на аватарке, input file остається для роботи */}
+                        </>
+                    )}
+                    {activeTab === 'password' && (
+                        <>
+                            <label htmlFor="current-password" className={styles.profileLabel}>Поточний пароль</label>
+                            <input
+                                type="password"
+                                id="current-password"
+                                value={currentPassword}
+                                onChange={e => setCurrentPassword(e.target.value)}
+                                className={styles.profileInput}
+                            />
+                            <label htmlFor="new-password" className={styles.profileLabel}>Новий пароль</label>
+                            <input
+                                type="password"
+                                id="new-password"
+                                value={newPassword}
+                                onChange={e => setNewPassword(e.target.value)}
+                                className={styles.profileInput}
+                            />
+                        </>
+                    )}
+                    <button type="submit" className={styles.profileButton}>Зберегти зміни</button>
+                </form>
+                <button onClick={handleLogout} className={`${styles.profileButton} ${styles.profileLogout}`}>Вийти з акаунту</button>
+                {message && <div className={styles.profileMessage}>{message}</div>}
+                {error && <div className={styles.profileError}>{error}</div>}
             </div>
         </div>
     );
