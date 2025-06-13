@@ -1,25 +1,50 @@
 "use client";
 import AvatarUploader from "@/components/profile/AvatarUploader";
-import { useState } from "react";
-
-// Пример текущих данных пользователя (замените на реальные данные из вашего источника)
-const mockUser = {
-    name: "Дмитро Дегтяр",
-    email: "domitori@gmail.com",
-};
+import { useState, useEffect } from "react";
 
 export default function UserProfile() {
-    const [name, setName] = useState(mockUser.name);
-    const [email, setEmail] = useState(mockUser.email);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
     const [currentPassword, setCurrentPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [message, setMessage] = useState("");
+    const [error, setError] = useState("");
     const [activeTab, setActiveTab] = useState<'info' | 'password'>('info');
+    const [loading, setLoading] = useState(true);
 
-    const handleSave = (e: React.FormEvent) => {
+    useEffect(() => {
+        async function fetchProfile() {
+            setLoading(true);
+            setError("");
+            try {
+                const res = await fetch("/api/auth/profile");
+                const data = await res.json();
+                if (!res.ok) {
+                    setError(data.error || "Не вдалося отримати профіль");
+                } else {
+                    setName(data.user?.user_metadata?.name || "");
+                    setEmail(data.user?.email || "");
+                }
+            } catch {
+                setError("Помилка мережі");
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchProfile();
+    }, []);
+
+    const handleSave = async (e: React.FormEvent) => {
         e.preventDefault();
+        setMessage("");
+        setError("");
+        // Здесь можно реализовать обновление профиля через отдельный backend-роут
         setMessage("Зміни збережено!");
     };
+
+    if (loading) {
+        return <div className="text-center text-sky-200 py-20">Завантаження профілю...</div>;
+    }
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center py-12 animate-fade-in">
@@ -34,8 +59,8 @@ export default function UserProfile() {
                             <AvatarUploader />
                         </div>
                         <div className="text-lg mb-2 text-sky-200 font-semibold">Поточна інформація:</div>
-                        <div className="text-sky-100">Ім'я: <span className="font-bold">{mockUser.name}</span></div>
-                        <div className="text-sky-100">Email: <span className="font-bold">{mockUser.email}</span></div>
+                        <div className="text-sky-100">Ім'я: <span className="font-bold">{name}</span></div>
+                        <div className="text-sky-100">Email: <span className="font-bold">{email}</span></div>
                     </div>
                     <div className="flex-1 flex flex-col gap-8">
                         <div className="flex gap-4 mb-4">
@@ -117,7 +142,15 @@ export default function UserProfile() {
                                 <div className="mt-8 flex justify-center">
                                     <div className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900/80 border border-green-400 text-green-300 font-semibold text-lg shadow animate-fade-in">
                                         <svg className="inline-block" width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#22c55e"/><path d="M7 13l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                                        <span>Зміни збережено</span>
+                                        <span>{message}</span>
+                                    </div>
+                                </div>
+                            )}
+                            {error && (
+                                <div className="mt-8 flex justify-center">
+                                    <div className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900/80 border border-red-400 text-red-300 font-semibold text-lg shadow animate-fade-in">
+                                        <svg className="inline-block" width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#ef4444"/><path d="M7 13l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                                        <span>{error}</span>
                                     </div>
                                 </div>
                             )}

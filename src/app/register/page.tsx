@@ -7,10 +7,34 @@ export default function RegisterPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    const handleRegister = (e: React.FormEvent) => {
+    const handleRegister = async (e: React.FormEvent) => {
         e.preventDefault();
-        setMessage("Реєстрацію успішно виконано!");
+        setMessage("");
+        setError("");
+        setLoading(true);
+        try {
+            const res = await fetch("/api/auth/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, password })
+            });
+            const data = await res.json();
+            if (!res.ok) {
+                setError(data.error || "Помилка реєстрації");
+            } else {
+                setMessage("Реєстрацію успішно виконано!");
+                setName("");
+                setEmail("");
+                setPassword("");
+            }
+        } catch (err) {
+            setError("Помилка мережі");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -56,14 +80,23 @@ export default function RegisterPage() {
                     <button
                         type="submit"
                         className="px-10 py-3 rounded-2xl bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500 text-white font-bold text-lg shadow-lg hover:from-cyan-400 hover:to-sky-500 transition-all duration-200 focus:ring-2 focus:ring-sky-400 focus:outline-none mt-2"
+                        disabled={loading}
                     >
-                        Зареєструватися
+                        {loading ? "Реєстрація..." : "Зареєструватися"}
                     </button>
                     {message && (
                         <div className="flex justify-center mt-4">
                             <div className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900/80 border border-green-400 text-green-300 font-semibold text-lg shadow animate-fade-in">
                                 <svg className="inline-block" width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#22c55e"/><path d="M7 13l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                                <span>Реєстрацію успішно виконано</span>
+                                <span>{message}</span>
+                            </div>
+                        </div>
+                    )}
+                    {error && (
+                        <div className="flex justify-center mt-4">
+                            <div className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900/80 border border-red-400 text-red-300 font-semibold text-lg shadow animate-fade-in">
+                                <svg className="inline-block" width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#ef4444"/><path d="M7 13l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                                <span>{error}</span>
                             </div>
                         </div>
                     )}
