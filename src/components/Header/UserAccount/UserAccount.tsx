@@ -28,7 +28,7 @@ export default function UserAccount({ username, avatarUrl }: UserAccountProps) {
         </div>
         <div className={styles.userInfo}>
           <span className={styles.username}>{username}</span>
-          <span className={styles.emoji} title="Баланс">💸</span>
+          <span className={styles.emoji} title="Баланс">🧺</span>
         </div>
       </div>
     </Link>
