@@ -13,17 +13,11 @@ export default function UserAccount({ username, avatarUrl }: UserAccountProps) {
       <div className={styles.userAccount}>
         <div className={styles.avatarContainer}>
           <div className={styles.avatar}>
-            {avatarUrl ? (
-              <img
-                src={avatarUrl}
-                alt={username}
-                className={styles.avatarImage}
-              />
-            ) : (
-              <div className={styles.avatarFallback}>
-                {username.charAt(0).toUpperCase()}
-              </div>
-            )}
+            <img
+              src={avatarUrl || '/ava.jpg'}
+              alt={username}
+              className={styles.avatarImage}
+            />
           </div>
         </div>
         <div className={styles.userInfo}>
