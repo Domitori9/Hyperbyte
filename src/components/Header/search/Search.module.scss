@@ -38,24 +38,9 @@ $border-focus: rgba(255, 255, 255, 0.3);
   &:focus {
     outline: none;
     background: rgba(255, 255, 255, 0.15);
-    transform: perspective(1000px) rotateX(1deg) scale(1.01);
+    transform: perspective(1000px) rotateX(1deg) ;
     box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.35);
     border-color: $border-focus;
-  }
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      $border-focus,
-      transparent
-    );
   }
 }
 
@@ -76,4 +61,4 @@ $border-focus: rgba(255, 255, 255, 0.3);
   .searchInput:focus + & {
     color: $text-color-focus;
   }
-} 
+}
