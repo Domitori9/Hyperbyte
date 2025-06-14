@@ -101,6 +101,10 @@
   transform: translateY(-10px);
   transition: all 0.2s ease;
 
+  :nth-child(1) {
+    background-color: rgb(87, 87, 201);
+  }
+
   &.open {
     opacity: 1;
     visibility: visible;

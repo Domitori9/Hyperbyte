@@ -7,6 +7,7 @@ import UserAccount from '@/components/Header/UserAccount/UserAccount';
 import styles from './Header.module.scss';
 
 const menuItems = [
+    { id: 0, name: 'Категории', href: '/products' },
     { id: 1, name: 'ПК', href: '/products/pc' },
     { id: 2, name: 'Миші', href: '/products/mouse' },
     { id: 3, name: 'Клавіатури', href: '/products/keyboards' },

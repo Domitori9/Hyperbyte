@@ -1,27 +1,67 @@
 .categoriesGrid {
-  margin: 4rem 0 4rem 0;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 36px;
   padding: 18px;
+  animation: fadeInGrid 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInGrid {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .categoryCard {
   position: relative;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+  transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  height: 240px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  
+  height: 260px;
+  box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.13);
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  animation: cardAppear 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 0.08s);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 24px 40px -8px rgba(0, 0, 0, 0.18);
+    z-index: 2;
+
     .categoryImage {
-      transform: scale(1.05);
+      transform: scale(1.08) rotate(-2deg);
+      filter: brightness(1.08) saturate(1.2);
     }
+
+    .categoryOverlay {
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.92) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        transparent 100%
+      );
+      backdrop-filter: blur(2px);
+    }
+  }
+}
+
+@keyframes cardAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -29,7 +69,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s;
+  filter: brightness(0.95) saturate(1.1);
 }
 
 .categoryOverlay {
@@ -37,31 +78,49 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 24px;
+  padding: 28px 24px 20px 24px;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.65) 50%,
     transparent 100%
   );
   color: white;
   transform: translateY(0);
-  transition: transform 0.3s ease;
+  transition: background 0.4s, padding 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 60px;
 }
 
 .categoryName {
-  font-size: 1.75rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 800;
   margin-bottom: 8px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   letter-spacing: 0.5px;
+  line-height: 1.1;
+  animation: fadeInText 0.7s 0.2s backwards;
 }
 
 .categoryDescription {
-  font-size: 1rem;
-  opacity: 0.9;
+  font-size: 1.08rem;
+  opacity: 0.93;
   line-height: 1.5;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  animation: fadeInText 0.7s 0.35s backwards;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 1300px) {
@@ -98,6 +157,8 @@
     gap: 10px;
     grid-template-columns: 1fr;
     margin-bottom: 5rem;
+    gap: 1rem;
+    padding: 2rem;
   }
   .categoryCard {
     height: 140px;
