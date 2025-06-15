@@ -15,7 +15,7 @@ export interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ id, title, price, image, category }) => (
   <Link href={`/products/${category}/${id}`} className={styles.productCard}>
     <div className={styles.imageWrapper}>
-      <img src={image} alt={title} />
+      <img src={image || "/ava.jpg"} alt={title} />
     </div>
     <div className={styles.productInfo}>
       <h3 className={styles.title}>{title}</h3>
