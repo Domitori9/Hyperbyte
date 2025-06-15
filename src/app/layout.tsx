@@ -29,17 +29,14 @@ const roboto = Roboto({
 });
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
-  
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${roboto.className} min-h-screen flex flex-col`}> 
-        
-        <main className="flex-1">  
+      <body className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${roboto.className} min-h-screen flex flex-col`}>
+        {/* CartProvider удалён, теперь используется только zustand */}
+        <main className="flex-1">
           {children}
           <MenuBarMobile />
         </main>
-        
-        
       </body>
     </html>
   );

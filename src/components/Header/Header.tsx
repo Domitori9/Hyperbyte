@@ -4,6 +4,7 @@ import { useState, useCallback, memo, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Search from '@/components/Header/search/Search';
 import UserAccount from '@/components/Header/UserAccount/UserAccount';
+import { useCartStore } from '@/lib/cartStore';
 import styles from './Header.module.scss';
 
 const menuItems = [
@@ -23,6 +24,8 @@ const Header = () => {
     const menuRef = useRef<HTMLDivElement>(null);
     const [user, setUser] = useState<{ username: string; avatarUrl?: string } | null>(null);
     const [loading, setLoading] = useState(true);
+    const cart = useCartStore((state: any) => state.cart);
+    const cartCount = cart.reduce((sum: number, item: any) => sum + item.quantity, 0);
 
     const handleClickOutside = useCallback((event: MouseEvent) => {
         if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -104,7 +107,7 @@ const Header = () => {
                             <circle cx="19" cy="21" r="1"/>
                             <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
                         </svg>
-                        <span className={styles.cartCount}>0</span>
+                        <span className={styles.cartCount}>{cartCount}</span>
                     </Link>
                 </div>
             </div>
