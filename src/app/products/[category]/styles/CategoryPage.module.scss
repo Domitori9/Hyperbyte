@@ -64,6 +64,40 @@
   padding: 0 2rem;
 }
 
+.filterBlock {
+  margin-right: 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.filterLabel {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #f3f4f6;
+}
+.filterOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.filterOptionButton {
+  background: #23262f;
+  color: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.filterOptionButton:hover,
+.filterOptionButton.active {
+  background: #3b82f6;
+  color: #fff;
+}
+
 @media (max-width: 1200px) {
   .productsGrid {
     grid-template-columns: repeat(3, 1fr);
@@ -73,11 +107,30 @@
   .productsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .filterBlock {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+  .filterOptionButton {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.95rem;
+  }
 }
 @media (max-width: 600px) {
   .productsGrid {
     grid-template-columns: 1fr;
     gap: 1.2rem;
     padding: 0 0.5rem;
+  }
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filterBlock {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .filterOptions {
+    gap: 0.3rem;
   }
 }

@@ -62,3 +62,33 @@ $border-focus: rgba(255, 255, 255, 0.3);
     color: $text-color-focus;
   }
 }
+
+.searchDropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: #181a20;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+  z-index: 100;
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid $glass-border;
+  padding: 0.3rem 0;
+}
+
+.searchResult {
+  display: block;
+  padding: 0.7rem 1.5rem;
+  color: #f3f4f6;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.searchResult:hover {
+  background: #23262f;
+  color: #3b82f6;
+}

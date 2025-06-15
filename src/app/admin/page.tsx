@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import styles from "./admin.module.scss";
@@ -58,7 +58,6 @@ export default function AdminPage() {
   const [editProduct, setEditProduct] = useState<any | null>(null);
   const [form, setForm] = useState<any>({ name: "", price: "", category: "", description: "", image_url: "" });
   const [isAdmin, setIsAdmin] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     // Проверка прав администратора
@@ -128,20 +127,6 @@ export default function AdminPage() {
     }
   };
 
-  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const formData = new FormData();
-    formData.append("file", file);
-    // Можно реализовать загрузку на Supabase Storage или другой backend endpoint
-    const res = await fetch("/api/upload", {
-      method: "POST",
-      body: formData,
-    });
-    const data = await res.json();
-    if (data.url) setForm((prev: any) => ({ ...prev, image_url: data.url }));
-  };
-
   const filteredProducts = products.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -188,13 +173,11 @@ export default function AdminPage() {
             )
           ))}
           <input
-            type="file"
-            accept="image/*"
-            ref={fileInputRef}
-            onChange={handleFileChange}
-            className={styles.select}
+            name="image_url"
+            value={form.image_url}
+            onChange={handleInput}
+            placeholder="Зображення (URL)"
           />
-          <input name="image_url" value={form.image_url} onChange={handleInput} placeholder="Зображення (URL)" />
           <textarea name="description" value={form.description} onChange={handleInput} placeholder="Опис" />
           <button type="submit">{editProduct ? "Оновити" : "Додати"}</button>
           {editProduct && <button type="button" onClick={() => { setEditProduct(null); setForm({ name: "", price: "", category: "", description: "", image_url: "" }); }}>Скасувати</button>}

@@ -93,17 +93,24 @@ export default function CategoryPage() {
         <h1 className={styles.title}>{CATEGORY_MAP[category] || "Товари"}</h1>
         <div className={styles.filters}>
           {FILTERS[category]?.map((filter) => (
-            <select
-              key={filter.field}
-              value={selectedFilters[filter.field] || ""}
-              onChange={(e) => handleFilterChange(filter.field, e.target.value)}
-              className={styles.filterSelect}
-            >
-              <option value="">{filter.label}</option>
-              {filter.options.map((option) => (
-                <option key={option} value={option}>{option}</option>
-              ))}
-            </select>
+            <div key={filter.field} className={styles.filterBlock}>
+              <div className={styles.filterLabel}>{filter.label}</div>
+              <div className={styles.filterOptions}>
+                {filter.options.map((option) => (
+                  <button
+                    key={option}
+                    className={
+                      styles.filterOptionButton +
+                      (selectedFilters[filter.field] === option ? ' ' + styles.active : '')
+                    }
+                    onClick={() => handleFilterChange(filter.field, option)}
+                    type="button"
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
         {loading ? (
