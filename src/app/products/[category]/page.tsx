@@ -1,10 +1,12 @@
 'use client';
 import { useEffect, useState } from "react";
-import ProductCard, { ProductCardProps } from "@/components/products/ProductCard";
+import ProductCard from "@/components/products/ProductCard";
+import type { ProductCardProps } from '@/types/shop';
 import styles from "./styles/CategoryPage.module.scss";
 import { useParams } from "next/navigation";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import { fetchProductsByCategory } from '@/utils/fetchProductsByCategory';
 
 const CATEGORY_MAP: Record<string, string> = {
   pc: "ПК",
@@ -63,9 +65,8 @@ export default function CategoryPage() {
   useEffect(() => {
     async function fetchProducts() {
       setLoading(true);
-      const res = await fetch(`/api/products?category=${category}`);
-      const data = await res.json();
-      setProducts(data.products || []);
+      const productsData = await fetchProductsByCategory(category);
+      setProducts(productsData);
       setLoading(false);
     }
     if (category) fetchProducts();

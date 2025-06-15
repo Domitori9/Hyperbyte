@@ -218,4 +218,20 @@
       cursor: not-allowed;
     }
   }
-} 
+}
+
+.orderSuccess {
+  position: fixed;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #22c55e;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  padding: 1.2rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  z-index: 1200;
+  animation: fadeIn 0.2s;
+}

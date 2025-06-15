@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { useCartStore } from '@/lib/cartStore';
+import { fetchProductById } from '@/utils/fetchProductById';
 import productStyles from "../styles/ProductPage.module.scss";
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -63,9 +64,8 @@ export default function ProductDetailPage() {
   useEffect(() => {
     async function fetchProduct() {
       setLoading(true);
-      const res = await fetch(`/api/products?id=${id}`);
-      const data = await res.json();
-      setProduct(data.product || null);
+      const productData = await fetchProductById(id);
+      setProduct(productData);
       setLoading(false);
     }
     if (id) fetchProduct();

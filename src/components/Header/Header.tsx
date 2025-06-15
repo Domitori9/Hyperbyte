@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Search from '@/components/Header/search/Search';
 import UserAccount from '@/components/Header/UserAccount/UserAccount';
 import { useCartStore } from '@/lib/cartStore';
+import { fetchProfileApi } from '@/utils/fetchProfileApi';
 import styles from './Header.module.scss';
 
 const menuItems = [
@@ -41,22 +42,9 @@ const Header = () => {
     useEffect(() => {
         async function fetchProfile() {
             setLoading(true);
-            try {
-                const res = await fetch('/api/auth/profile');
-                if (res.ok) {
-                    const data = await res.json();
-                    setUser({
-                        username: data.profile?.name || data.user?.user_metadata?.name || data.user?.email || 'Профіль',
-                        avatarUrl: data.profile?.avatar_url || data.user?.user_metadata?.avatar_url || undefined,
-                    });
-                } else {
-                    setUser(null);
-                }
-            } catch {
-                setUser(null);
-            } finally {
-                setLoading(false);
-            }
+            const userData = await fetchProfileApi();
+            setUser(userData);
+            setLoading(false);
         }
         fetchProfile();
     }, []);

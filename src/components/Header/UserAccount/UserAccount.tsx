@@ -1,11 +1,8 @@
 import Link from 'next/link';
-import React, { Component } from 'react';
-import styles from './UserAccount.module.scss';
+import React from 'react';
+import { UserAccountProps } from '@/types/shop';
 
-interface UserAccountProps {
-  username: string;
-  avatarUrl?: string;
-}
+import styles from './UserAccount.module.scss';
 
 export default function UserAccount({ username, avatarUrl }: UserAccountProps) {
   return (

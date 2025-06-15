@@ -4,10 +4,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { useCartStore } from '@/lib/cartStore';
+import { CheckoutModal } from '@/components/cart/CheckoutModal';
 import styles from './cart.module.scss'
 
 export default function CartPage() {
     const [isLoading, setIsLoading] = useState(true);
+    const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+    const [orderSuccess, setOrderSuccess] = useState(false);
     const cart = useCartStore((state: any) => state.cart);
     const updateQuantity = useCartStore((state: any) => state.updateQuantity);
     const removeFromCart = useCartStore((state: any) => state.removeFromCart);
@@ -18,6 +21,13 @@ export default function CartPage() {
     }, []);
 
     const total = cart.reduce((sum: number, item: any) => sum + Number(item.price) * item.quantity, 0);
+
+    const handleCheckout = (data: { email: string; city: string; address: string; fullname: string; card: string }) => {
+        setIsCheckoutOpen(false);
+        setOrderSuccess(true);
+        clearCart();
+        setTimeout(() => setOrderSuccess(false), 3000);
+    };
 
     return (
         <div className={styles.cartContainer}>
@@ -78,12 +88,16 @@ export default function CartPage() {
                                 <span>Сума до сплати:</span>
                                 <span>{total} грн</span>
                             </div>
-                            <button className={styles.checkoutButton} disabled={cart.length === 0}>Оформити замовлення</button>
+                            <button className={styles.checkoutButton} disabled={cart.length === 0} onClick={() => setIsCheckoutOpen(true)}>Оформити замовлення</button>
                             <button className={styles.checkoutButton} style={{background:'#ef4444',marginTop:'0.5rem'}} onClick={clearCart}>Очистити кошик</button>
                         </div>
                     </>
                 )}
             </div>
+            <CheckoutModal isOpen={isCheckoutOpen} onClose={() => setIsCheckoutOpen(false)} onSubmit={handleCheckout} />
+            {orderSuccess && (
+                <div className={styles.orderSuccess}>Дякуємо за замовлення! Ми зв'яжемося з вами найближчим часом.</div>
+            )}
         </div>
     )
 }

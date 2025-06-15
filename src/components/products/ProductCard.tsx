@@ -3,15 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { useCartStore } from '@/lib/cartStore';
+import { ProductCardProps } from '../../types/shop';
 import styles from './ProductsSection.module.scss';
-
-export interface ProductCardProps {
-  id: number;
-  title: string;
-  price: string;
-  image: string;
-  category: string;
-}
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, title, price, image, category }) => {
   const addToCart = useCartStore((state: any) => state.addToCart);

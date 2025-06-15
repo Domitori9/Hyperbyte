@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useAnimatedPlaceholder } from '@/hooks/useAnimatedPlaceholder';
 import styles from './Search.module.scss';
 
 export default function Search() {
@@ -13,32 +13,7 @@ export default function Search() {
         "Знайти ноутбук..."
     ];
 
-    const [currentPhrase, setCurrentPhrase] = useState('');
-    const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-    const [isDeleting, setIsDeleting] = useState(false);
-
-    useEffect(() => {
-        const currentFullPhrase = phrases[currentPhraseIndex];
-
-        let timeout: NodeJS.Timeout;
-
-        if (!isDeleting && currentPhrase === currentFullPhrase) {
-            timeout = setTimeout(() => setIsDeleting(true), 1500);
-        } else if (isDeleting && currentPhrase === '') {
-            setIsDeleting(false);
-            setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
-        } else {
-            timeout = setTimeout(() => {
-                if (isDeleting) {
-                    setCurrentPhrase(currentFullPhrase.substring(0, currentPhrase.length - 1));
-                } else {
-                    setCurrentPhrase(currentFullPhrase.substring(0, currentPhrase.length + 1));
-                }
-            }, isDeleting ? 40 : 90);
-        }
-
-        return () => clearTimeout(timeout);
-    }, [currentPhrase, currentPhraseIndex, isDeleting, phrases]);
+    const currentPhrase = useAnimatedPlaceholder(phrases);
 
     return (
         <form role="search" aria-label="Пошук по сайту" className={styles.searchForm}>

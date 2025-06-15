@@ -1,0 +1,36 @@
+id,category,name,price,image_url,description,cpu,gpu,ram,type,dpi,brand,backlight,size,hz,resolution,mic,material
+1,pc,Игровой ПК A,35000,/public/category/pc.jpg,Мощный игровой ПК,Intel i7,NVIDIA RTX 4060,16GB,,,,,,,,,
+2,pc,Офисный ПК B,18000,/public/category/pc.jpg,Компактный офисный ПК,Intel i5,Intel UHD,8GB,,,,,,,,,
+3,pc,ПК для дизайна,42000,/public/category/pc.jpg,ПК для работы с графикой,AMD Ryzen 7,NVIDIA RTX 3070,32GB,,,,,,,,,
+4,pc,ПК для учебы,15000,/public/category/pc.jpg,Бюджетный ПК для студентов,Intel i3,,8GB,,,,,,,,,
+5,pc,Мини-ПК,12000,/public/category/pc.jpg,Миниатюрный ПК для дома,Intel N5105,,4GB,,,,,,,,,
+6,mouse,Logitech G102,900,/public/category/mouse.png,Игровая мышь,,,,Провідна,8000,Logitech,,,,,,
+7,mouse,Razer DeathAdder,1500,/public/category/mouse.png,Эргономичная мышь,,,,Провідна,16000,Razer,,,,,,
+8,mouse,SteelSeries Rival 3,1200,/public/category/mouse.png,Лёгкая мышь,,,,Бездротова,8500,SteelSeries,,,,,,
+9,mouse,Hator Pulsar,1100,/public/category/mouse.png,Мышь для FPS,,,,Провідна,12000,Hator,,,,,,
+10,mouse,Logitech M185,500,/public/category/mouse.png,Офисная мышь,,,,Бездротова,1000,Logitech,,,,,,
+11,keyboard,HyperX Alloy,2500,/public/category/keyboard.jpg,Механическая клавиатура,,,,Механічна,,HyperX,RGB,,,,,
+12,keyboard,Logitech K120,600,/public/category/keyboard.jpg,Мембранная клавиатура,,,,Мембранна,,Logitech,Без підсвітки,,,,,
+13,keyboard,Razer BlackWidow,3200,/public/category/keyboard.jpg,Игровая клавиатура,,,,Механічна,,Razer,RGB,,,,,
+14,keyboard,SteelSeries Apex 3,2100,/public/category/keyboard.jpg,Влагозащищённая клавиатура,,,,Мембранна,,SteelSeries,RGB,,,,,
+15,keyboard,HyperX Alloy FPS,2700,/public/category/keyboard.jpg,Компактная механика,,,,Механічна,,HyperX,RGB,,,,,
+16,monitor,Samsung 24",6000,/public/category/monitor.jpg,FullHD монитор,,,,,,24,75,FullHD,,
+17,monitor,LG 27GL850,12000,/public/category/monitor.jpg,Игровой монитор,,,,,,27,144,2K,,
+18,monitor,Philips 32",9000,/public/category/monitor.jpg,Большой монитор,,,,,,32,60,FullHD,,
+19,monitor,AOC 24G2,8500,/public/category/monitor.jpg,Монитор для киберспорта,,,,,,24,144,FullHD,,
+20,monitor,ASUS TUF 34",18000,/public/category/monitor.jpg,Ультраширокий монитор,,,,,,34,100,2K,,
+21,headphones,HyperX Cloud II,2500,/public/category/headphones.jpg,Игровые наушники,,,,,,,,,,,З мікрофоном,
+22,headphones,Sony WH-1000XM4,9000,/public/category/headphones.jpg,Беспроводные наушники,,,,,,,,,,,Без мікрофона,
+23,headphones,Razer Kraken,2200,/public/category/headphones.jpg,Наушники с подсветкой,,,,,,,,,,,З мікрофоном,
+24,headphones,SteelSeries Arctis 5,2700,/public/category/headphones.jpg,Наушники для стриминга,,,,,,,,,,,З мікрофоном,
+25,headphones,JBL Tune 500,800,/public/category/headphones.jpg,Компактные наушники,,,,,,,,,,,Без мікрофона,
+26,pad,SteelSeries QcK,500,/public/category/pad.jpg,Игровой коврик,,,,,,,,,,Малий,,,Тканина
+27,pad,HyperX Fury S,700,/public/category/pad.jpg,Большой коврик,,,,,,,,,,Великий,,,Тканина
+28,pad,Razer Goliathus,800,/public/category/pad.jpg,Коврик с подсветкой,,,,,,,,,,Середній,,,Тканина
+29,pad,Logitech G240,600,/public/category/pad.jpg,Тонкий коврик,,,,,,,,,,Малий,,,Тканина
+30,pad,ASUS ROG Scabbard,1200,/public/category/pad.jpg,Коврик XL,,,,,,,,,,Великий,,,Тканина
+31,laptop,Apple MacBook Air,35000,/public/category/laptop.jpg,Лёгкий ноутбук,Apple M1,,8GB,,,,,,,,
+32,laptop,Asus ZenBook,27000,/public/category/laptop.jpg,Тонкий ультрабук,Intel i5,,16GB,,,,,,,,
+33,laptop,HP Pavilion,22000,/public/category/laptop.jpg,Бюджетный ноутбук,Intel i3,,8GB,,,,,,,,
+34,laptop,Lenovo Legion 5,40000,/public/category/laptop.jpg,Игровой ноутбук,AMD Ryzen 7,NVIDIA RTX 3060,16GB,,,,,,,,
+35,laptop,Acer Aspire 5,18000,/public/category/laptop.jpg,Универсальный ноутбук,Intel i5,,8GB,,,,,,,,
