@@ -1,0 +1,84 @@
+.categoryPage {
+  min-height: 100vh;
+  background: #181a20;
+  color: #f3f4f6;
+  padding: 6.5rem 0 4rem 0; // увеличен верхний отступ для видимости контента под Header
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.searchInput {
+  background: #23262f;
+  color: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: background 0.2s;
+}
+.searchInput:focus {
+  background: #2c2f3a;
+}
+
+.filterSelect {
+  background: #23262f;
+  color: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  outline: none;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: background 0.2s;
+}
+.filterSelect:focus {
+  background: #2c2f3a;
+}
+
+.loading, .empty {
+  text-align: center;
+  color: #a1a1aa;
+  font-size: 1.2rem;
+  margin-top: 3rem;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+@media (max-width: 1200px) {
+  .productsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .productsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 0 0.5rem;
+  }
+}

@@ -16,7 +16,7 @@ const categories: Category[] = [
     id: "pc",
     name: "Системники",
     image: "/category/pc.jpg",
-    path: "/category/pc.jpg",
+    path: "/products/pc",
     description: "Потужні ігрові та робочі комп'ютери для будь-яких задач",
     color: "#3B82F6"
   },
