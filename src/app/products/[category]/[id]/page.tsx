@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import { useCartStore } from '@/lib/cartStore';
 import styles from "../styles/CategoryPage.module.scss";
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -56,6 +57,8 @@ export default function ProductDetailPage() {
   const { category, id } = params as { category: string; id: string };
   const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const addToCart = useCartStore((state: any) => state.addToCart);
+  const [added, setAdded] = useState(false);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -67,6 +70,19 @@ export default function ProductDetailPage() {
     }
     if (id) fetchProduct();
   }, [id]);
+
+  const handleAdd = () => {
+    if (!product) return;
+    addToCart({
+      id: product.id,
+      title: product.name,
+      price: product.price,
+      image: product.image_url,
+      category: product.category,
+    });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1200);
+  };
 
   if (loading) return <div className={styles.loading}>Завантаження...</div>;
   if (!product) return <div className={styles.empty}>Товар не знайдено</div>;
@@ -118,20 +134,32 @@ export default function ProductDetailPage() {
                 ) : null
               ))}
             </div>
-            <button style={{
-            background: 'linear-gradient(90deg,#38bdf8 60%,#2563eb 100%)',
-            color: 'white',
-            border: 0,
-            borderRadius: 12,
-            padding: '1.1rem 2.5rem',
-            fontWeight: 800,
-            fontSize: '1.18rem',
-            boxShadow: '0 2px 16px #38bdf81a',
-            cursor: 'pointer',
-            marginTop: 18,
-            letterSpacing: 0.01,
-          }}>
-              Купити
+            <button
+              onClick={handleAdd}
+              style={{
+                background: added ? '#22c55e' : 'linear-gradient(90deg,#38bdf8 60%,#2563eb 100%)',
+                color: 'white',
+                border: 0,
+                borderRadius: 12,
+                padding: '1.1rem 2.5rem',
+                fontWeight: 800,
+                fontSize: '1.18rem',
+                boxShadow: '0 2px 16px #38bdf81a',
+                cursor: 'pointer',
+                marginTop: 18,
+                letterSpacing: 0.01,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 10,
+                transition: 'background 0.2s',
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{marginRight: 6}}>
+                <circle cx="8" cy="21" r="1"/>
+                <circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+              {added ? 'Додано!' : 'До кошика'}
             </button>
           </div>
         </div>
